@@ -19,7 +19,7 @@ const NarvbarE = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Sí, deseo salir!",
+      confirmButtonText: "Sí, deseo salirr!",
     }).then((result) => {
       if (result.isConfirmed) {
         MySwal.fire({
