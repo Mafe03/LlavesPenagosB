@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-
 const Carrito = () => {
   return (
     <>
@@ -19,10 +18,12 @@ const Carrito = () => {
               <span class="ahfb-svg-iconset ast-inline-flex svg-baseline ms-2 me-2">
                 <i class="fa-solid fa-chevron-right"></i>
               </span>{" "}
-              <a href="">
-                <span class="ast-step-number">2</span>
-                <p>Verificar detalles</p>
-              </a>
+              <NavLink to={"/Ecommerce/PasarelaPago"}>
+                <a href="">
+                  <span class="ast-step-number">2</span>
+                  <p>Verificar detalles</p>
+                </a>
+              </NavLink>
               <span class="ahfb-svg-iconset ast-inline-flex svg-baseline ms-2 me-2">
                 <i class="fa-solid fa-chevron-right"></i>
               </span>{" "}

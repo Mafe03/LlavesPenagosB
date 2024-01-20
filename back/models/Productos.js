@@ -30,7 +30,7 @@ module.exports = (sequelize, type) => {
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
       },
-      imagen1: {
+      imagen: {
         type: type.STRING(256),
       },
     },

@@ -2,8 +2,39 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import extintor from "../../assets/images/extinot.png";
+import Swal2 from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import { Outlet, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+const MySwal = withReactContent(Swal2);
 
 const NarvbarE = () => {
+  const Navigate = useNavigate();
+  const CerraSesion = () => {
+    MySwal.fire({
+      title: "Cerrar Sesión",
+      text: "Desea salir?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí, deseo salir!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        MySwal.fire({
+          title: "Cerrando!",
+          text: "Hasta pronto!",
+          icon: "success",
+        });
+        setTimeout(() => {
+          Navigate("/Ecommerce/Cerrar");
+        }, 500);
+      }
+    });
+  };
+
+  const datos = JSON.parse(localStorage.getItem("user"));
   const [show, setShow] = useState(false);
   const handleClose = () => {
     setShow(false);
@@ -96,7 +127,7 @@ const NarvbarE = () => {
       >
         <div className="container">
           <NavLink to="/Ecommerce">
-            <a className="navbar-brand"></a>
+            <a className="navbar-brand">Llaves Penagos</a>
           </NavLink>
 
           <button
@@ -137,13 +168,23 @@ const NarvbarE = () => {
 
             <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
               <li>
-                <a className="nav-link" href="#">
-                  <img src="images/user.svg" />
+                <a className="nav-link">
+                  <i class="bi bi-person-circle"></i>
+                  <span>
+                    {"   "}
+                    {datos.nombre} {datos.apellido}
+                  </span>
                 </a>
               </li>
               <li>
                 <a className="nav-link" onClick={handleShow}>
                   <i class="bi bi-cart4"></i>
+                </a>
+              </li>
+              <li>
+                <a className="nav-link" onClick={CerraSesion}>
+                  <i class="bi bi-box-arrow-right"></i>{" "}
+                  <span>{""} Cerrar sesión</span>
                 </a>
               </li>
             </ul>

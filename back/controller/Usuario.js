@@ -101,6 +101,7 @@ const Login = async (req, res) => {
           {
             idUsuario: dataUsers[0].idUsuario,
             nombre: dataUsers[0].nombre,
+            apellido: dataUsers[0].apellido,
             email: dataUsers[0].email,
           },
           "Mafe&Angie",
@@ -114,6 +115,7 @@ const Login = async (req, res) => {
           usuario: {
             idUsuario: dataUsers[0].idUsuario,
             nombre: dataUsers[0].nombre,
+            apellido: dataUsers[0].apellido,
             email: dataUsers[0].email,
           },
           token: token,

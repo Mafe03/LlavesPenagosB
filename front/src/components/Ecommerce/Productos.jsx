@@ -1,13 +1,88 @@
-import React, { useState } from "react";
-import cross from "../../assets/images/bag.svg";
+import React, { useState, useEffect } from "react";
 import envelope from "../../assets/images/envelope-outline.svg";
 import extintor from "../../assets/images/extinot.png";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { NavLink } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
+import ImgEyes from "../../assets/images/eyes.png";
+import ImgCart from "../../assets/images/cart.png";
 import Button from "react-bootstrap/Button";
 
 const Productos = (props) => {
+  const [categorias, setCategorias] = useState([]);
+  const [productos, setProductos] = useState([]);
+  const [modal, setModal] = useState([]);
+
+  const token = localStorage.getItem("token");
+
+  const ListarUnProducto = async (id) => {
+    const request = await fetch(
+      `http://localhost:3600/productos/listarUno/${id}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `${token}`,
+        },
+      }
+    );
+    const data = await request.json();
+    setModal([]);
+    setModal(data.mensaje);
+  };
+  /*   const listarProductosCategoria = async (idCategoria) => {
+    const request = await fetch(
+      `http://localhost:3600/productos/listarCategoria/${idCategoria}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `${token}`,
+        },
+      }
+    );
+    const data = await request.json();
+    //console.log(data);
+    //console.table(data);
+    setProductos([]);
+    setProductos(data.mensaje);
+  }; */
+
+  const listarProductos = async () => {
+    const request = await fetch("http://localhost:3600/productos/listarI", {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `${token}`,
+      },
+    });
+    const data = await request.json();
+    //console.log(data);
+    setProductos([]);
+    setProductos(data.mensaje);
+  };
+
+  /*   const listarCategorias = async () => {
+    const request = await fetch("http://localhost:3600/categorias/listar", {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `${token}`,
+      },
+    });
+    const data = await request.json();
+    //console.log(data);
+    setCategorias(data.mensaje);
+  };
+
+  useEffect(() => {
+    listarCategorias();
+  }, []);
+*/
+  useEffect(() => {
+    listarProductos();
+  }, []);
+
   const [show, setShow] = useState(false);
   const handleClose = () => {
     setShow(false);
@@ -23,85 +98,147 @@ const Productos = (props) => {
   const handleShow2 = () => {
     setShow2(true);
   };
+
   return (
     <>
       <Modal
         show={show2}
         onHide={handleClose2}
-        {...props}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">Producto</Modal.Title>
-        </Modal.Header>
+        <Modal.Header closeButton></Modal.Header>
         <Modal.Body>
-          <div className="card mb-4" style={{ maxWidth: "820%" }}>
-            <div className="row g-0">
-              <div className="col-md-4">
-                <img
-                  src={extintor}
-                  className="img-fluid rounded-start"
-                  alt="..."
-                />
-              </div>
-              <div className="col-md-8">
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
-                  </p>
-                  <p className="card-text">
-                    <small className="text-body-secondary">
-                      Last updated 3 mins ago
-                    </small>
-                  </p>
+          {modal.map((producto) => {
+            return (
+              <div className="d-flex" key={producto.idProducto}>
+                <div className="flex-shrink-0">
+                  <img src={producto.imagen} alt="..." width="300px" />
+                </div>
+                <div className="flex-grow-1 ms-3 d-flex flex-column justify-content-between">
+                  <div>
+                    <h3>{producto.nombre}</h3>
+
+                    <p className="mt-3">{producto.descripcion}</p>
+                    <p>$ {producto.precio}</p>
+                    <p className="">Cantidad:</p>
+                    <div
+                      className="input-group mb-3 d-flex align-items-center quantity-container"
+                      style={{ maxWidth: "120px" }}
+                    >
+                      <div className="input-group-prepend">
+                        <button
+                          className="btn btn-outline-black decrease"
+                          type="button"
+                        >
+                          -
+                        </button>
+                      </div>
+                      <input
+                        type="text"
+                        className="form-control text-center quantity-amount"
+                        value="1"
+                        placeholder=""
+                        aria-label="Example text with button addon"
+                        aria-describedby="button-addon1"
+                      />
+                      <div className="input-group-append">
+                        <button
+                          className="btn btn-outline-black increase"
+                          type="button"
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <NavLink to="Carrito" className="">
+                    <button href="#" className="btn btn-dark w-100 mt-auto">
+                      Agregar al carrito
+                    </button>
+                  </NavLink>
                 </div>
               </div>
-            </div>
-          </div>
+            );
+          })}
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary">Close</Button>
-          <Button variant="primary" onClick={handleClose2}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
       </Modal>
 
       <Offcanvas show={show} onHide={handleClose} placement="end">
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Tú Carrito de Compras</Offcanvas.Title>
+        <Offcanvas.Header closeButton id="gradient">
+          <Offcanvas.Title>Tu carrito</Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body className="fixed-body">
-          <div className="card mb-3" style={{ maxWidth: "500%" }}>
-            <div className="row g-0">
-              <div className="col-md-4">
-                <img src="..." className="img-fluid rounded-start" alt="..." />
-              </div>
-              <div className="col-md-8">
-                <div className="card-body">
-                  <h5 className="card-title">Card title</h5>
-                  <p className="card-text">
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
-                  </p>
-                  <p className="card-text">
-                    <small className="text-body-secondary">
-                      Last updated 3 mins ago
-                    </small>
-                  </p>
+        <Offcanvas.Body className="fixed-body d-flex flex-column">
+          <div className="d-flex">
+            <div className="p-2 flex-fill">
+              <img
+                width="100px"
+                className=""
+                src="https://websitedemos.net/egrow-plants-04/wp-content/uploads/sites/1114/2022/07/flower-008-a-400x550.jpg"
+                alt=""
+                style={{ borderRadius: "5px" }}
+              />
+            </div>
+            <div className="p-2 flex-fill">
+              <p className="mt-3">Camiseta</p>
+              <p className="mt-3"> $ 120.000</p>
+              <div className="d-flex align-items-center mt-3">
+                <div
+                  className="input-group mb-3 d-flex align-items-center quantity-container"
+                  style={{ maxWidth: "120px" }}
+                >
+                  <div className="input-group-prepend">
+                    <button
+                      className="btn btn-outline-black decrease"
+                      type="button"
+                    >
+                      -
+                    </button>
+                  </div>
+                  <input
+                    type="text"
+                    className="form-control text-center quantity-amount"
+                    value="1"
+                    placeholder=""
+                    aria-label="Example text with button addon"
+                    aria-describedby="button-addon1"
+                  />
+                  <div className="input-group-append">
+                    <button
+                      className="btn btn-outline-black increase"
+                      type="button"
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
+
+            <div className="align-self-center">
+              {" "}
+              <i className="fa-solid fa-delete-left"></i>
+            </div>
           </div>
-          <NavLink to="/Ecommerce/Carrito">
-            <button className="button">Ver carrito</button>
-          </NavLink>
+
+          <div style={{ marginBottom: "265px" }}></div>
+
+          <div className="d-grid gap-2 ">
+            <hr />
+            <div className="d-flex">
+              <div className="p-2">Total:</div>
+              <div className="ms-auto p-2">$ 120.000</div>
+            </div>
+            <NavLink to="/Ecommerce/Carrito">
+              <button className="btn btn-gradient w-100 ">
+                <i className="fa-solid fa-eye"></i> Ver carrito
+              </button>
+            </NavLink>
+            <button className="btn btn-gradient2 w-100">
+              <i className="fa-solid fa-star"></i> Comprar ahora
+            </button>
+          </div>
         </Offcanvas.Body>
       </Offcanvas>
 
@@ -112,11 +249,11 @@ const Productos = (props) => {
           </div>
           <div className="row mt-5">
             <div className="col-3">
-              <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
+              <div className="accordion" id="accordionExample">
+                <div className="accordion-item">
+                  <h2 className="accordion-header">
                     <button
-                      class="accordion-button"
+                      className="accordion-button"
                       type="button"
                       data-bs-toggle="collapse"
                       data-bs-target="#collapseOne"
@@ -128,20 +265,20 @@ const Productos = (props) => {
                   </h2>
                   <div
                     id="collapseOne"
-                    class="accordion-collapse collapse show"
+                    className="accordion-collapse collapse show"
                     data-bs-parent="#accordionExample"
                   >
-                    <div class="accordion-body">
+                    <div className="accordion-body">
                       <strong>This is the first item's accordion body.</strong>{" "}
                       It is shown by default, until the collapse plugin adds the
                       appropriate classes that we use to style each element.
                     </div>
                   </div>
                 </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
+                <div className="accordion-item">
+                  <h2 className="accordion-header">
                     <button
-                      class="accordion-button collapsed"
+                      className="accordion-button collapsed"
                       type="button"
                       data-bs-toggle="collapse"
                       data-bs-target="#collapseTwo"
@@ -153,20 +290,20 @@ const Productos = (props) => {
                   </h2>
                   <div
                     id="collapseTwo"
-                    class="accordion-collapse collapse"
+                    className="accordion-collapse collapse"
                     data-bs-parent="#accordionExample"
                   >
-                    <div class="accordion-body">
+                    <div className="accordion-body">
                       <strong>This is the second item's accordion body.</strong>{" "}
                       It is hidden by default, until the collapse plugin adds
                       the appropriate classes that we use to style each element.
                     </div>
                   </div>
                 </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
+                <div className="accordion-item">
+                  <h2 className="accordion-header">
                     <button
-                      class="accordion-button collapsed"
+                      className="accordion-button collapsed"
                       type="button"
                       data-bs-toggle="collapse"
                       data-bs-target="#collapseThree"
@@ -178,10 +315,10 @@ const Productos = (props) => {
                   </h2>
                   <div
                     id="collapseThree"
-                    class="accordion-collapse collapse"
+                    className="accordion-collapse collapse"
                     data-bs-parent="#accordionExample"
                   >
-                    <div class="accordion-body">
+                    <div className="accordion-body">
                       <strong>This is the third item's accordion body.</strong>{" "}
                       It is hidden by default, until the collapse plugin adds
                       the appropriate classes that we use to style each element.
@@ -191,18 +328,37 @@ const Productos = (props) => {
               </div>
             </div>
             <div className="col-9 col-md-4 col-lg-3 mb-5 border border-secondary-subtle">
-              <a className="product-item ">
-                <img src={extintor} className="img-fluid product-thumbnail" />
-                <h3 className="product-title">Nordic Chair</h3>
-                <strong className="product-price">$50.00</strong>
+              {productos.map((producto) => {
+                return (
+                  <>
+                    {" "}
+                    <a className="product-item ">
+                      <img
+                        src={producto.imagen}
+                        className="img-fluid product-thumbnail"
+                      />
+                      <hr />
+                      <h3 className="product-title mb-2">{producto.nombre}</h3>
 
-                <span className="icon-cross" onClick={handleShow}>
-                  <i class="bi bi-bag-plus"></i>
-                </span>
-                <span className="icon-cross2  " onClick={handleShow2}>
-                  <img src="a" className="img-fluid" />
-                </span>
-              </a>
+                      <span className="product-price ">
+                        $ {producto.precio}
+                      </span>
+                      <span className="icon-cross" onClick={handleShow}>
+                        <img src={ImgCart} className="img-fluid" />
+                      </span>
+                      <span
+                        className="icon-cross2 "
+                        onClick={() => {
+                          ListarUnProducto(producto.idProducto);
+                          handleShow2();
+                        }}
+                      >
+                        <img src={ImgEyes} className="img-fluid" />
+                      </span>
+                    </a>
+                  </>
+                );
+              })}
             </div>
           </div>
         </div>

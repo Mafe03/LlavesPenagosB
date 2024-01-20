@@ -20,6 +20,7 @@ import { AuthProvider } from "../context/AuthProvider";
 import LayaoutEco from "../components/Public/LayaoutEco";
 import { AuthProviderDash } from "../context/AuthProviderDash";
 import LayaoutDashboard from "../components/Public/LayaoutDash";
+import Cerrar from "../components/Ecommerce/CerrarSesion";
 
 const Routing = () => {
   return (
@@ -37,6 +38,7 @@ const Routing = () => {
               <Route path="Servicio" element={<Servicio />} />
               <Route path="Carrito" element={<Carrito />} />
               <Route path="PasarelaPago" element={<Pago />} />
+              <Route path="Cerrar" element={<Cerrar />} />
             </Route>
           </Routes>
         </AuthProvider>

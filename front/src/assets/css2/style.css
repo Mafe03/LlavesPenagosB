@@ -36,7 +36,7 @@ a.more {
 }
 
 .custom-navbar {
-  background: #93acde !important;
+  background: #ac0000 !important;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -64,7 +64,7 @@ a.more {
 }
 .custom-navbar .custom-navbar-nav li a {
   font-weight: 500;
-  color: #ffffff !important;
+  color: rgb(255, 255, 255) important;
   opacity: 0.5;
   -webkit-transition: 0.3s all ease;
   -o-transition: 0.3s all ease;
@@ -121,7 +121,7 @@ a.more {
 }
 
 .hero {
-  background: #93acde;
+  background: #ac0000;
   padding: calc(4rem - 30px) 0 0rem 0;
 }
 @media (min-width: 768px) {
@@ -223,14 +223,14 @@ a.more {
 }
 
 .btn.btn-primary {
-  background: #93acde;
-  border-color: #93acde;
+  background: #ac0000;
+  border-color: #ac0000;
 }
 .btn-gradient {
   background: linear-gradient(
     to right,
-    #99b1e1,
-    #657eb1
+    #cf0b0baa,
+    #ac0000
   ); /* Gradient de naranja a rojo */
   color: white; /* Color del texto */
   padding: 10px 20px; /* Ajusta el espaciado interno del botón según sea necesario */
@@ -239,7 +239,7 @@ a.more {
   cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
 }
 #gradient {
-  background: linear-gradient(to right, #93acde, #7f97c4);
+  background: linear-gradient(to right, #cf0b0baa, #ac0000);
   color: white;
 }
 
@@ -266,15 +266,15 @@ a.more {
   filter: brightness(1.2); /* Ajusta el brillo para resaltar el botón */
 }
 #tr {
-  background: #93acde;
+  background: #ac0000;
 }
 #tr2 {
-  background: #93acde;
+  background: #ac0000;
 }
 
 .btn.btn-primary:hover {
-  background: #7c97ce;
-  border-color: #7c97ce;
+  background: #8e0101;
+  border-color: #8e0101;
 }
 .btn.btn-secondary {
   color: #2f2f2f;
@@ -939,7 +939,7 @@ textarea {
   transition: none;
 }
 #ast-checkout-wrap a .ast-step-number {
-  background-color: #93acde;
+  background-color: #ac0000;
   color: #eaecef;
   margin: 0 0.5em;
   margin-left: 0;
