@@ -2,23 +2,23 @@
 [ FONT ]*/
 
 @font-face {
-  font-family: Poppins-Regular;
-  src: url("../fonts/poppins/Poppins-Regular.ttf");
+  font-family: "Quicksand", sans-serif;
+  src: url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
 }
 
 @font-face {
-  font-family: Poppins-Bold;
-  src: url("../fonts/poppins/Poppins-Bold.ttf");
+  font-family: "Quicksand", sans-serif;
+  src: url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
 }
 
 @font-face {
-  font-family: Poppins-Medium;
-  src: url("../fonts/poppins/Poppins-Medium.ttf");
+  font-family: "Quicksand", sans-serif;
+  src: url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
 }
 
 @font-face {
-  font-family: Montserrat-Bold;
-  src: url("../fonts/montserrat/Montserrat-Bold.ttf");
+  font-family: "Quicksand", sans-serif;
+  src: url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
 }
 
 /*//////////////////////////////////////////////////////////////////
@@ -33,12 +33,16 @@
 body,
 html {
   height: 100%;
-  font-family: Poppins-Regular, sans-serif;
+  margin: 0;
+  padding: 0;
+
+  background-size: cover;
+  font-family: "Quicksand", sans-serif;
 }
 
 /*---------------------------------------------*/
 a {
-  font-family: Poppins-Regular;
+  font-family: "Quicksand", sans-serif;
   font-size: 14px;
   line-height: 1.7;
   color: #666666;
@@ -69,7 +73,7 @@ h6 {
 }
 
 p {
-  font-family: Poppins-Regular;
+  font-family: "Quicksand", sans-serif;
   font-size: 14px;
   line-height: 1.7;
   color: #666666;
@@ -168,14 +172,14 @@ iframe {
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
 .txt1 {
-  font-family: Poppins-Regular;
+  font-family: "Quicksand", sans-serif;
   font-size: 13px;
   line-height: 1.5;
   color: #999999;
 }
 
 .txt2 {
-  font-family: Poppins-Regular;
+  font-family: "Quicksand", sans-serif;
   font-size: 13px;
   line-height: 1.5;
   color: #666666;
@@ -191,6 +195,7 @@ iframe {
 
 .container-login100 {
   width: 100%;
+  background-image: url("../images/llaves-antiguas.jpg"); /* Cambia 'ruta/a/la/imagen.jpg' por la ruta de tu imagen */
   min-height: 100vh;
   display: -webkit-box;
   display: -webkit-flex;
@@ -201,13 +206,24 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #9053c7;
-  background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
 }
-
+input[type="text"]::placeholder {
+  color: #686565cd; /* Cambia #999 al color que prefieras */
+}
+input[type="password"]::placeholder {
+  color: #686565cd; /* Cambia #999 al color que prefieras */
+}
+input[type="number"]::placeholder {
+  color: #686565cd; /* Cambia #999 al color que prefieras */
+}
+input[type="email"]::placeholder {
+  color: #686565cd; /* Cambia #999 al color que prefieras */
+}
 .wrap-login100 {
   background: #fff;
   border-radius: 10px;
@@ -240,7 +256,7 @@ iframe {
 }
 
 .login100-form-title {
-  font-family: Poppins-Bold;
+  font-family: "Quicksand", sans-serif;
   font-size: 24px;
   color: #333333;
   line-height: 1.2;
@@ -260,7 +276,7 @@ iframe {
 }
 
 .input100 {
-  font-family: Poppins-Medium;
+  font-family: "Quicksand", sans-serif;
   font-size: 15px;
   line-height: 1.5;
   color: #666666;
@@ -352,7 +368,7 @@ iframe {
 }
 
 .login100-form-btn {
-  font-family: Montserrat-Bold;
+  font-family: "Quicksand", sans-serif;
   font-size: 15px;
   line-height: 1.5;
   color: #fff;
@@ -378,7 +394,7 @@ iframe {
 }
 
 .login100-form-btn:hover {
-  background: #333333;
+  background: linear-gradient(to right, #b71212aa, #680000);
 }
 
 /*------------------------------------------------------------------
@@ -442,7 +458,7 @@ iframe {
   right: 8px;
   pointer-events: none;
 
-  font-family: Poppins-Medium;
+  font-family: "Quicksand", sans-serif;
   color: #c80000;
   font-size: 13px;
   line-height: 1.4;

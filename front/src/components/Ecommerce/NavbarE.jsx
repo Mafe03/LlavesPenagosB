@@ -19,7 +19,7 @@ const NarvbarE = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Sí, deseo salirr!",
+      confirmButtonText: "Sí, deseo salir!",
     }).then((result) => {
       if (result.isConfirmed) {
         MySwal.fire({
@@ -160,9 +160,9 @@ const NarvbarE = () => {
                 </NavLink>
               </li>
               <li>
-                <a className="nav-link" href="services.html">
-                  Sobre Nosotros
-                </a>
+                <NavLink to="Nosotros">
+                  <a className="nav-link">Nosotros</a>
+                </NavLink>
               </li>
             </ul>
 

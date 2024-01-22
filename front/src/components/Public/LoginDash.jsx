@@ -54,7 +54,7 @@ const LoginDash = () => {
               className="login100-form validate-form"
               onSubmit={LoginDashboard}
             >
-              <span className="login100-form-title"> Inicio </span>
+              <span className="login100-form-title"> Inicio Empleados </span>
 
               <div
                 className="wrap-input100 validate-input"
@@ -70,7 +70,7 @@ const LoginDash = () => {
                 />
                 <span className="focus-input100"></span>
                 <span className="symbol-input100">
-                  <i className="fa fa-envelope" aria-hidden="true"></i>
+                  <i className="fa fa-id-card-o" aria-hidden="true"></i>
                 </span>
               </div>
 
@@ -92,8 +92,18 @@ const LoginDash = () => {
                 </span>
               </div>
 
-              <div className="container-login100-form-btn">
-                <button className="login100-form-btn">Iniciar</button>
+              <div className="container-login100-form-btn ">
+                <button className="login100-form-btn btn-gradient">
+                  Ingresar
+                </button>
+              </div>
+              <div className="text-center p-t-12">
+                <span className="txt1"> Eres cliente? </span>
+
+                <a className="txt2" href="/">
+                  {" "}
+                  Ingresa aquí{" "}
+                </a>
               </div>
             </form>
           </div>

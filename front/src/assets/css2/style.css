@@ -11,7 +11,7 @@ body {
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: 400;
   line-height: 28px;
   color: #6a6a6a;
@@ -267,6 +267,9 @@ a.more {
 }
 #tr {
   background: #ac0000;
+}
+.th {
+  color: white;
 }
 #tr2 {
   background: #ac0000;
@@ -789,7 +792,7 @@ a.more {
 .footer-section .subscription-form .form-control {
   height: 50px;
   border-radius: 10px;
-  font-family: "Inter", sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 .footer-section .subscription-form .form-control:active,
 .footer-section .subscription-form .form-control:focus {
@@ -873,7 +876,7 @@ a.more {
 .form-control {
   height: 50px;
   border-radius: 10px;
-  font-family: "Inter", sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 .form-control:active,
 .form-control:focus {
@@ -1014,7 +1017,9 @@ textarea {
 .site-block-order-table th {
   color: #000000;
 }
-
+#th {
+  color: white;
+}
 .couponcode-wrap input {
   border-radius: 10px !important;
 }

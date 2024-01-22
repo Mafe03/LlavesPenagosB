@@ -4,9 +4,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Inicio from "../components/Dashboard/Inicio";
 import Categorias from "../components/Dashboard/Categorias";
 import Productos from "../components/Dashboard/Productos";
-import Servicios from "../components/Dashboard/Servicios";
 import MetodoPago from "../components/Dashboard/MetodoPago";
-import Reportes from "../components/Dashboard/Reportes";
 import LayoutE from "../components/Ecommerce/LayoutE";
 import InicioE from "../components/Ecommerce/Inicio";
 import ProductosE from "../components/Ecommerce/Productos";
@@ -21,6 +19,10 @@ import LayaoutEco from "../components/Public/LayaoutEco";
 import { AuthProviderDash } from "../context/AuthProviderDash";
 import LayaoutDashboard from "../components/Public/LayaoutDash";
 import Cerrar from "../components/Ecommerce/CerrarSesion";
+import SobreNosotros from "../components/Ecommerce/SobreNosotros";
+import CerrarSesionDash from "../components/Dashboard/CerrarSesionDash";
+import Clientes from "../components/Dashboard/Clientes";
+import Pedidos from "../components/Dashboard/Pedidos";
 
 const Routing = () => {
   return (
@@ -38,6 +40,7 @@ const Routing = () => {
               <Route path="Servicio" element={<Servicio />} />
               <Route path="Carrito" element={<Carrito />} />
               <Route path="PasarelaPago" element={<Pago />} />
+              <Route path="Nosotros" element={<SobreNosotros />} />
               <Route path="Cerrar" element={<Cerrar />} />
             </Route>
           </Routes>
@@ -51,9 +54,10 @@ const Routing = () => {
               <Route index element={<Inicio />} />
               <Route path="Categorias" element={<Categorias />} />
               <Route path="Productos" element={<Productos />} />
-              <Route path="Servicios" element={<Servicios />} />
+              <Route path="Clientes" element={<Clientes />} />
               <Route path="MetodoPago" element={<MetodoPago />} />
-              <Route path="Reportes" element={<Reportes />} />
+              <Route path="Pedidos" element={<Pedidos />} />
+              <Route path="CerrarDash" element={<CerrarSesionDash />} />
             </Route>
           </Routes>
         </AuthProviderDash>

@@ -55,7 +55,7 @@ const LoginEco = () => {
               className="login100-form validate-form"
               onSubmit={LoginEcommerce}
             >
-              <span className="login100-form-title"> Inicio </span>
+              <span className="login100-form-title"> Inicio Cliente </span>
               <div
                 className="wrap-input100 validate-input"
                 data-validate="Valid email is required: ex@abc.xyz"
@@ -70,7 +70,7 @@ const LoginEco = () => {
                 />
                 <span className="focus-input100"></span>
                 <span className="symbol-input100">
-                  <i className="fa fa-envelope" aria-hidden="true"></i>
+                  <i className="fa fa-id-card-o" aria-hidden="true"></i>
                 </span>
               </div>
               <div
@@ -91,15 +91,26 @@ const LoginEco = () => {
                 </span>
               </div>
               <div className="container-login100-form-btn">
-                <button className="login100-form-btn">Iniciar</button>
+                <button className="login100-form-btn btn-gradient">
+                  Ingresar
+                </button>
               </div>
               <div className="text-center p-t-12">
                 <span className="txt1"> Desea </span>
-                <a className="txt2" href="/LoginDash">
+
+                <a className="txt2" href="/Registro">
                   {" "}
                   Registrarse?{" "}
                 </a>
               </div>{" "}
+              <div className="text-center p-t-12">
+                <span className="txt1"> Eres empleado? </span>
+
+                <a className="txt2" href="/LoginDash">
+                  {" "}
+                  Inicio aquí{" "}
+                </a>
+              </div>
             </form>
           </div>
         </div>

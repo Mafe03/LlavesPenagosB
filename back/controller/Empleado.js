@@ -101,6 +101,7 @@ const Login = async (req, res) => {
           {
             idUsuario: dataEmple[0].idEmpleado,
             nombre: dataEmple[0].nombre,
+            apellido: dataEmple[0].apellido,
             email: dataEmple[0].email,
           },
           "Mafe&Angie",
@@ -114,6 +115,7 @@ const Login = async (req, res) => {
           usuario: {
             idEmpleado: dataEmple[0].idEmpleado,
             nombre: dataEmple[0].nombre,
+            apellido: dataEmple[0].apellido,
             email: dataEmple[0].email,
           },
           token: token,

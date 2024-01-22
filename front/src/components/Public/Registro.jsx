@@ -46,7 +46,7 @@ const Registro = () => {
               <span className="login100-form-title"> Registro </span>
               <div
                 className="wrap-input100 validate-input"
-                data-validate="Valid email is required: ex@abc.xyz"
+                data-validate="Cedula requerida: 111223556"
               >
                 <input
                   className="input100"
@@ -64,7 +64,7 @@ const Registro = () => {
               </div>
               <div
                 className="wrap-input100 validate-input"
-                data-validate="Password is required"
+                data-validate="Nombre/s requerido"
               >
                 <input
                   className="input100"
@@ -81,7 +81,7 @@ const Registro = () => {
               </div>
               <div
                 className="wrap-input100 validate-input"
-                data-validate="Valid email is required: ex@abc.xyz"
+                data-validate="Apellido/s requeridos"
               >
                 <input
                   className="input100"
@@ -98,7 +98,7 @@ const Registro = () => {
               </div>
               <div
                 className="wrap-input100 validate-input"
-                data-validate="Valid email is required: ex@abc.xyz"
+                data-validate="Telefono requerido"
               >
                 <input
                   className="input100"
@@ -115,7 +115,7 @@ const Registro = () => {
               </div>
               <div
                 className="wrap-input100 validate-input"
-                data-validate="Valid email is required: ex@abc.xyz"
+                data-validate="Dirección requerida"
               >
                 <input
                   className="input100"
@@ -132,7 +132,7 @@ const Registro = () => {
               </div>
               <div
                 className="wrap-input100 validate-input"
-                data-validate="Valid email is required: ex@abc.xyz"
+                data-validate="Correo requerido"
               >
                 <input
                   className="input100"
@@ -149,7 +149,7 @@ const Registro = () => {
               </div>
               <div
                 className="wrap-input100 validate-input"
-                data-validate="Valid email is required: ex@abc.xyz"
+                data-validate="Contraseña requerida"
               >
                 <input
                   className="input100"
@@ -165,16 +165,17 @@ const Registro = () => {
                 </span>
               </div>
               <div className="container-login100-form-btn">
-                <button className="login100-form-btn">Iniciar</button>
+                <button className="login100-form-btn btn-gradient">
+                  Registrarse
+                </button>
               </div>
               <div className="text-center p-t-12">
                 <span className="txt1"> Estás registrado? </span>
-                <NavLink to="/">
-                  <a className="txt2" href="">
-                    {" "}
-                    Inicio{" "}
-                  </a>
-                </NavLink>
+
+                <a className="txt2" href="/">
+                  {" "}
+                  Inicio{" "}
+                </a>
               </div>{" "}
             </form>
           </div>

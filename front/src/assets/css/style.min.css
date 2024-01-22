@@ -388,7 +388,7 @@ html {
 }
 body,
 html {
-  font-family: "Inter", sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 a,
 button,
@@ -746,7 +746,7 @@ body {
 .image,
 .message,
 .paper {
-  background-image: url(../img/svg/Bulk/Image-white.svg);
+  background-image: url(../img/svg/Bulk/credit-card.svg);
   width: 24px;
   height: 24px;
 }
@@ -755,7 +755,10 @@ body {
   background-image: url(../img/svg/Bulk/Paper-white.svg);
 }
 .message {
-  background-image: url(../img/svg/Bulk/Message-white.svg);
+  background-image: url(../img/svg/Bulk/Category-white.svg);
+}
+.credit-card {
+  background-image: url(../img/svg/Bulk/credit-card.svg);
 }
 .category,
 .edit,
@@ -771,6 +774,7 @@ body {
 .user-3 {
   background-image: url(../img/svg/Bulk/3-User-white.svg);
 }
+
 .setting,
 .settings-line {
   background-image: url(../img/svg/Bulk/Setting-white.svg);
@@ -811,13 +815,13 @@ body {
   background-image: url(../img/svg/radio.svg);
 }
 .thumbnail {
-  background-image: url(../img/svg/thumbnail.svg);
+  background-image: url(../img/svg/Bulk/Logout.svg);
   width: 60px;
   height: 60px;
 }
 .google-drive,
 .time-circle {
-  background-image: url(../img/svg/Bulk/TimeCircle.svg);
+  background-image: url(../img/svg/thumbnail.svg);
   width: 24px;
   height: 24px;
 }
@@ -1470,7 +1474,7 @@ label {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  background-color: #93acde !important;
+  background-color: #ac0000 !important;
   width: 253px;
   padding: 20px 15px 37px 20px;
   -webkit-transition: 0.5s all;
@@ -1573,14 +1577,14 @@ label {
   font-weight: 600;
   font-size: 14px;
   letter-spacing: 0.75px;
-  color: #fff;
+  color: #ffffff;
 }
 .sidebar-user__subtitle {
   font-weight: 500;
   font-size: 10px;
   line-height: 1.5;
   letter-spacing: 0.86px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(255, 255, 255);
 }
 .logo {
   margin-right: 9px;
@@ -1696,7 +1700,7 @@ label {
   -webkit-transition: 0.3s all;
   -o-transition: 0.3s all;
   transition: 0.3s all;
-  background-color: #fff;
+  background-color: #ac0000;
 }
 .main-nav-end {
   display: -webkit-box;
@@ -1850,11 +1854,12 @@ label {
 .search-wrapper input {
   width: 271px;
   border-radius: 6px;
-  background-color: #eff0f6;
+  background-color: #bec1ce68;
   padding: 3px 8px 3px 42px;
   height: 40px;
   border-width: 0;
 }
+
 .search-wrapper input::-webkit-input-placeholder {
   background-color: #eff0f6;
   font-size: 14px;

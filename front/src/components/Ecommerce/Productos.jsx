@@ -30,7 +30,7 @@ const Productos = (props) => {
     setModal([]);
     setModal(data.mensaje);
   };
-  /*   const listarProductosCategoria = async (idCategoria) => {
+  const listarProductosCategoria = async (idCategoria) => {
     const request = await fetch(
       `http://localhost:3600/productos/listarCategoria/${idCategoria}`,
       {
@@ -46,7 +46,7 @@ const Productos = (props) => {
     //console.table(data);
     setProductos([]);
     setProductos(data.mensaje);
-  }; */
+  };
 
   const listarProductos = async () => {
     const request = await fetch("http://localhost:3600/productos/listarI", {
@@ -62,7 +62,7 @@ const Productos = (props) => {
     setProductos(data.mensaje);
   };
 
-  /*   const listarCategorias = async () => {
+  const listarCategorias = async () => {
     const request = await fetch("http://localhost:3600/categorias/listar", {
       method: "GET",
       headers: {
@@ -78,7 +78,7 @@ const Productos = (props) => {
   useEffect(() => {
     listarCategorias();
   }, []);
-*/
+
   useEffect(() => {
     listarProductos();
   }, []);
@@ -154,8 +154,11 @@ const Productos = (props) => {
                     </div>
                   </div>
                   <NavLink to="Carrito" className="">
-                    <button href="#" className="btn btn-dark w-100 mt-auto">
-                      Agregar al carrito
+                    <button
+                      href="#"
+                      className="btn btn-dark w-100 mt-auto btn-gradient"
+                    >
+                      <i class="bi bi-cart4"></i> Agregar al carrito
                     </button>
                   </NavLink>
                 </div>
@@ -245,92 +248,52 @@ const Productos = (props) => {
       <div className="untree_co-section product-section before-footer-section">
         <div className="container">
           <div className="row">
-            <div className="col-12">dasd</div>
-          </div>
-          <div className="row mt-5">
-            <div className="col-3">
-              <div className="accordion" id="accordionExample">
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseOne"
-                      aria-expanded="true"
-                      aria-controls="collapseOne"
-                    >
-                      Accordion Item #1
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseOne"
-                    className="accordion-collapse collapse show"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body">
-                      <strong>This is the first item's accordion body.</strong>{" "}
-                      It is shown by default, until the collapse plugin adds the
-                      appropriate classes that we use to style each element.
-                    </div>
-                  </div>
-                </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseTwo"
-                      aria-expanded="false"
-                      aria-controls="collapseTwo"
-                    >
-                      Accordion Item #2
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseTwo"
-                    className="accordion-collapse collapse"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body">
-                      <strong>This is the second item's accordion body.</strong>{" "}
-                      It is hidden by default, until the collapse plugin adds
-                      the appropriate classes that we use to style each element.
-                    </div>
-                  </div>
-                </div>
-                <div className="accordion-item">
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#collapseThree"
-                      aria-expanded="false"
-                      aria-controls="collapseThree"
-                    >
-                      Accordion Item #3
-                    </button>
-                  </h2>
-                  <div
-                    id="collapseThree"
-                    className="accordion-collapse collapse"
-                    data-bs-parent="#accordionExample"
-                  >
-                    <div className="accordion-body">
-                      <strong>This is the third item's accordion body.</strong>{" "}
-                      It is hidden by default, until the collapse plugin adds
-                      the appropriate classes that we use to style each element.
-                    </div>
-                  </div>
-                </div>
+            <div className="main-nav-start text-end">
+              <div className="search-wrapper">
+                <input type="text" placeholder="Buscar" required />
               </div>
             </div>
-            <div className="col-9 col-md-4 col-lg-3 mb-5 border border-secondary-subtle">
-              {productos.map((producto) => {
-                return (
-                  <>
+          </div>
+          <h3>Categorias</h3>
+          <div className="row mt-5">
+            <div className="col-3">
+              <div class="list-group" id="list-tab" role="tablist">
+                <a
+                  class="list-group-item list-group-item-action "
+                  id="list-home-list"
+                  data-bs-toggle="list"
+                  href="#list-home"
+                  role="tab"
+                  aria-controls="list-home"
+                  onClick={() => {
+                    listarProductos();
+                  }}
+                >
+                  Todos
+                </a>
+                {categorias.map((categoria) => {
+                  return (
+                    <a
+                      class="list-group-item list-group-item-action "
+                      id="list-home-list"
+                      data-bs-toggle="list"
+                      href="#list-home"
+                      role="tab"
+                      aria-controls="list-home"
+                      onClick={() => {
+                        listarProductosCategoria(categoria.idCategoria);
+                      }}
+                    >
+                      {categoria.descripCategoria}
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+            {productos.map((producto) => {
+              return (
+                <>
+                  <div className="col-9 col-md-4 col-lg-3 mb-5 border border-secondary-subtle">
                     {" "}
                     <a className="product-item ">
                       <img
@@ -356,10 +319,10 @@ const Productos = (props) => {
                         <img src={ImgEyes} className="img-fluid" />
                       </span>
                     </a>
-                  </>
-                );
-              })}
-            </div>
+                  </div>
+                </>
+              );
+            })}
           </div>
         </div>
       </div>

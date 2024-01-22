@@ -7,7 +7,7 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
 @import url(../fonts/stylesheet.css);
 
 html {
@@ -70,7 +70,7 @@ hr {
  */
 
 pre {
-  font-family: monospace, monospace;
+  font-family: "Quicksand", sans-serif;
   /* 1 */
   font-size: 1em;
   /* 2 */
@@ -119,7 +119,7 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
+  font-family: "Quicksand", sans-serif;
   /* 1 */
   font-size: 1em;
   /* 2 */
@@ -178,7 +178,7 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit;
+  font-family: "Quicksand", sans-serif;
   /* 1 */
   font-size: 100%;
   /* 1 */
@@ -660,7 +660,7 @@ html {
 
 html,
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 h1,
@@ -931,100 +931,89 @@ body {
 }
 
 @font-face {
-  font-family: "demo";
+  font-family: "Quicksand", sans-serif;
   font-display: swap;
-  src: url("../fonts/demo.woff") format("woff"),
-    url("../fonts/demo.woff2") format("woff2");
+  src: url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Inter-Black";
+  font-family: "Quicksand", sans-serif;
   font-display: swap;
-  src: url("../fonts/Inter-Black.woff") format("woff"),
-    url("../fonts/Inter-Black.woff2") format("woff2");
+  src: url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Inter-ExtraBold";
+  font-family: "Quicksand", sans-serif;
   font-display: swap;
-  src: url("../fonts/Inter-ExtraBold.woff") format("woff"),
-    url("../fonts/Inter-ExtraBold.woff2") format("woff2");
+  src: url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Inter-Bold";
+  font-family: "Quicksand", sans-serif;
   font-display: swap;
-  src: url("../fonts/Inter-Bold.woff") format("woff"),
-    url("../fonts/Inter-Bold.woff2") format("woff2");
+  src: url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Inter-Light";
+  font-family: "Quicksand", sans-serif;
   font-display: swap;
-  src: url("../fonts/Inter-Light.woff") format("woff"),
-    url("../fonts/Inter-Light.woff2") format("woff2");
+  src: url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Inter-ExtraLight";
+  font-family: "Quicksand", sans-serif;
   font-display: swap;
-  src: url("../fonts/Inter-ExtraLight.woff") format("woff"),
-    url("../fonts/Inter-ExtraLight.woff2") format("woff2");
+  src: url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Inter-Regular";
+  font-family: "Quicksand", sans-serif;
   font-display: swap;
-  src: url("../fonts/Inter-Regular.woff") format("woff"),
-    url("../fonts/Inter-Regular.woff2") format("woff2");
+  src: url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Inter-Medium";
+  font-family: "Quicksand", sans-serif;
   font-display: swap;
-  src: url("../fonts/Inter-Medium.woff") format("woff"),
-    url("../fonts/Inter-Medium.woff2") format("woff2");
+  src: url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Inter-SemiBold";
+  font-family: "Quicksand", sans-serif;
   font-display: swap;
-  src: url("../fonts/Inter-SemiBold.woff") format("woff"),
-    url("../fonts/Inter-SemiBold.woff2") format("woff2");
+  src: url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "stylesheet";
+  font-family: "Quicksand", sans-serif;
   font-display: swap;
-  src: url("../fonts/stylesheet.woff") format("woff"),
-    url("../fonts/stylesheet.woff2") format("woff2");
+  src: url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Inter-Thin";
+  font-family: "Quicksand", sans-serif;
   font-display: swap;
-  src: url("../fonts/Inter-Thin.woff") format("woff"),
-    url("../fonts/Inter-Thin.woff2") format("woff2");
+  src: url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
   font-weight: 400;
   font-style: normal;
 }
@@ -2159,7 +2148,7 @@ label {
   font-size: 10px;
   line-height: 1.5;
   letter-spacing: 0.86px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(255, 255, 255);
 }
 
 .logo {
@@ -2487,7 +2476,7 @@ label {
 .search-wrapper input {
   width: 271px;
   border-radius: 6px;
-  background-color: #eff0f6;
+  background-color: #dbdbdb8c;
   padding: 3px 8px 3px 42px;
   height: 40px;
   border-width: 0;

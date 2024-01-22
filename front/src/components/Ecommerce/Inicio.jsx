@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { NavLink } from "react-bootstrap";
 
 const Inicio = () => {
@@ -18,16 +19,14 @@ const Inicio = () => {
                   importa!
                 </p>
                 <p>
-                  <NavLink to="Productos">
-                    <a className="btn btn-gradient2">Ver más</a>
-                  </NavLink>
+                  <a hre className="btn btn-gradient2">
+                    Ver más
+                  </a>
                 </p>
               </div>
             </div>
             <div className="col-lg-7">
-              <div className="hero-img-wrap">
-                <img src="images/couch.png" className="img-fluid" />
-              </div>
+              <div className="hero-img-wrap"></div>
             </div>
           </div>
         </div>

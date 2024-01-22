@@ -1,166 +1,59 @@
 import React, { useState } from "react";
+import User from "../../assets/img/avatar/avatar-illustrated-01.png";
+import Swal2 from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import { Outlet, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+const MySwal = withReactContent(Swal2);
 
 const Navbar = () => {
+  const Navigate = useNavigate();
+  const CerraSesion = () => {
+    MySwal.fire({
+      title: "Cerrar Sesión",
+      text: "Desea salir?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí, deseo salir!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        MySwal.fire({
+          title: "Cerrando!",
+          text: "Hasta pronto!",
+          icon: "success",
+        });
+        setTimeout(() => {
+          Navigate("/Dashboard/CerrarDash");
+        }, 500);
+      }
+    });
+  };
+
+  const datos = JSON.parse(localStorage.getItem("user2"));
   return (
     <>
       <nav className="main-nav--bg">
         <div className="container main-nav">
-          <div className="main-nav-start">
-            <div className="search-wrapper">
-              <i data-feather="search" aria-hidden="true"></i>
-              <input type="text" placeholder="Enter keywords ..." required />
-            </div>
-          </div>
+          <div className="main-nav-start"></div>
           <div className="main-nav-end">
-            <button
-              className="sidebar-toggle transparent-btn"
-              title="Menu"
-              type="button"
-            >
-              <span className="sr-only">Toggle menu</span>
-              <span
-                className="icon menu-toggle--gray"
-                aria-hidden="true"
-              ></span>
-            </button>
-            <div className="lang-switcher-wrapper">
-              <button className="lang-switcher transparent-btn" type="button">
-                EN
-                <i data-feather="chevron-down" aria-hidden="true"></i>
-              </button>
-              <ul className="lang-menu dropdown">
-                <li>
-                  <a href="##">English</a>
-                </li>
-                <li>
-                  <a href="##">French</a>
-                </li>
-                <li>
-                  <a href="##">Uzbek</a>
-                </li>
-              </ul>
-            </div>
-            <button
-              className="theme-switcher gray-circle-btn"
-              type="button"
-              title="Switch theme"
-            >
-              <span className="sr-only">Switch theme</span>
-              <i className="sun-icon" data-feather="sun" aria-hidden="true"></i>
-              <i
-                className="moon-icon"
-                data-feather="moon"
-                aria-hidden="true"
-              ></i>
-            </button>
-            <div className="notification-wrapper">
-              <button
-                className="gray-circle-btn dropdown-btn"
-                title="To messages"
-                type="button"
-              >
-                <span className="sr-only">To messages</span>
-                <span
-                  className="icon notification active"
-                  aria-hidden="true"
-                ></span>
-              </button>
-              <ul className="users-item-dropdown notification-dropdown dropdown">
-                <li>
-                  <a href="##">
-                    <div className="notification-dropdown-icon info">
-                      <i data-feather="check"></i>
-                    </div>
-                    <div className="notification-dropdown-text">
-                      <span className="notification-dropdown__title">
-                        System just updated
-                      </span>
-                      <span className="notification-dropdown__subtitle">
-                        The system has been successfully upgraded. Read more
-                        here.
-                      </span>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="##">
-                    <div className="notification-dropdown-icon danger">
-                      <i data-feather="info" aria-hidden="true"></i>
-                    </div>
-                    <div className="notification-dropdown-text">
-                      <span className="notification-dropdown__title">
-                        The cache is full!
-                      </span>
-                      <span className="notification-dropdown__subtitle">
-                        Unnecessary caches take up a lot of memory space and
-                        interfere ...
-                      </span>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="##">
-                    <div className="notification-dropdown-icon info">
-                      <i data-feather="check" aria-hidden="true"></i>
-                    </div>
-                    <div className="notification-dropdown-text">
-                      <span className="notification-dropdown__title">
-                        New Subscriber here!
-                      </span>
-                      <span className="notification-dropdown__subtitle">
-                        A new subscriber has subscribed.
-                      </span>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a className="link-to-page" href="##">
-                    Go to Notifications page
-                  </a>
-                </li>
-              </ul>
+            <span className="nav-user-img">
+              <picture>
+                <img src={User} alt="User name" />
+              </picture>
+            </span>
+            <div className="sidebar-user-info">
+              <span className="sidebar-user__title">
+                {" "}
+                {datos.nombre} {datos.apellido}
+              </span>
             </div>
             <div className="nav-user-wrapper">
-              <button
-                href="##"
-                className="nav-user-btn dropdown-btn"
-                title="My profile"
-                type="button"
-              >
-                <span className="sr-only">My profile</span>
-                <span className="nav-user-img">
-                  <picture>
-                    <source
-                      srcset="./img/avatar/avatar-illustrated-02.webp"
-                      type="image/webp"
-                    />
-                    <img
-                      src="./img/avatar/avatar-illustrated-02.png"
-                      alt="User name"
-                    />
-                  </picture>
-                </span>
-              </button>
-              <ul className="users-item-dropdown nav-user-dropdown dropdown">
-                <li>
-                  <a href="##">
-                    <i data-feather="user" aria-hidden="true"></i>
-                    <span>Profile</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="##">
-                    <i data-feather="settings" aria-hidden="true"></i>
-                    <span>Account settings</span>
-                  </a>
-                </li>
-                <li>
-                  <a className="danger" href="##">
-                    <i data-feather="log-out" aria-hidden="true"></i>
-                    <span>Log out</span>
-                  </a>
-                </li>
-              </ul>
+              <a className="danger" onClick={CerraSesion}>
+                <span class="icon thumbnail" aria-hidden="true"></span>
+              </a>
             </div>
           </div>
         </div>
