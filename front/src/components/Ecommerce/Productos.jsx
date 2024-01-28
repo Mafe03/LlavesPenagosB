@@ -293,12 +293,13 @@ const Productos = (props) => {
             {productos.map((producto) => {
               return (
                 <>
-                  <div className="col-9 col-md-4 col-lg-3 mb-5 border border-secondary-subtle">
+                  <div className="col-9 col-md-4 col-lg-3 mb-5 border border-secondary-subtle ms-3">
                     {" "}
                     <a className="product-item ">
                       <img
                         src={producto.imagen}
                         className="img-fluid product-thumbnail"
+                        style={{ width: "350px", height: "350px" }}
                       />
                       <hr />
                       <h3 className="product-title mb-2">{producto.nombre}</h3>
