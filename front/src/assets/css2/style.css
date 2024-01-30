@@ -1002,10 +1002,19 @@ textarea {
 }
 
 .site-blocks-table .btn {
-  background: none !important;
-  color: #000000;
+  /*   background: none !important;
+  color: #000000; */
   border: none;
   height: auto !important;
+}
+
+.imagen {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  height: 50vh; /* Ajusta la altura según tus necesidades */
+  /*  max-width: 100%; /* Ajusta el ancho de la imagen 
+  max-height: 100%; /* Ajusta la altura de la imagen */
 }
 
 .site-block-order-table th {

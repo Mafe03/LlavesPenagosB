@@ -18,7 +18,7 @@ const MetodoP = MetodoPago(sequelize, Sequelize);
 const Usuario = Usuarios(sequelize, Sequelize);
 const Producto = Productos(sequelize, Sequelize);
 const Enca = Encabezado(sequelize, Sequelize);
-const Detal = Detalle(sequelize, Sequelize);
+const Deta = Detalle(sequelize, Sequelize);
 const Empleado = Empleados(sequelize, Sequelize);
 
 sequelize.sync({ force: false }).then(() => {
@@ -32,6 +32,6 @@ module.exports = {
   Usuario,
   Producto,
   Enca,
-  Detal,
+  Deta,
   Empleado,
 };

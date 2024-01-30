@@ -23,4 +23,10 @@ router.get(
   EncabezadoContoller.ListarTodosEncabezados
 );
 
+router.get(
+  "/encabezado/listarEncaUser/:id",
+  auth,
+  EncabezadoContoller.ListarEncabezadosUser
+);
+
 module.exports = router;

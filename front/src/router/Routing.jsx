@@ -23,6 +23,8 @@ import SobreNosotros from "../components/Ecommerce/SobreNosotros";
 import CerrarSesionDash from "../components/Dashboard/CerrarSesionDash";
 import Clientes from "../components/Dashboard/Clientes";
 import Pedidos from "../components/Dashboard/Pedidos";
+import Factura from "../components/Ecommerce/Factura";
+import Perfil from "../components/Ecommerce/Perfil";
 
 const Routing = () => {
   return (
@@ -40,6 +42,8 @@ const Routing = () => {
               <Route path="Servicio" element={<Servicio />} />
               <Route path="Carrito" element={<Carrito />} />
               <Route path="PasarelaPago" element={<Pago />} />
+              <Route path="Factura" element={<Factura />} />
+              <Route path="Perfil" element={<Perfil />} />
               <Route path="Nosotros" element={<SobreNosotros />} />
               <Route path="Cerrar" element={<Cerrar />} />
             </Route>

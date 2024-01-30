@@ -7,4 +7,10 @@ router.post("/detalle/agregar", auth, DetalleController.AgregarDetalle);
 
 router.get("/detalle/listar", auth, DetalleController.ListarDetalle);
 
+router.get(
+  "/detalle/listarDetEnca/:id",
+  auth,
+  DetalleController.ListarDetalleEncabezado
+);
+
 module.exports = router;

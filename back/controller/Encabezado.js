@@ -27,7 +27,7 @@ const EditarEstadoEnca = async (req, res) => {
 const ListarTodosEncabezados = async (req, res) => {
   try {
     const Encabezado = await sequelize.query(
-      "SELECT encabezado.idEncabezado, encabezado.fechaHora, encabezado.total, encabezado.idEstado, usuarios.nombre, usuarios.idUsuario,usuarios.apellido, metodopago.descripcion FROM encabezado JOIN usuarios ON encabezado.idUsuario = usuarios.idUsuario JOIN metodopago ON encabezado.idMetodo = metodopago.idMetodo",
+      "SELECT encabezado.idEncabezado, encabezado.fechaHora, encabezado.total, encabezado.idEstado, usuarios.nombre, usuarios.idUsuario,usuarios.apellido, metodopago.descripcion FROM encabezado JOIN usuarios ON encabezado.idUsuario = usuarios.idUsuario JOIN metodopago ON encabezado.idMetodo = metodopago.idMetodo ORDER BY encabezado.idEncabezado DESC",
       {
         type: QueryTypes.SELECT,
       }
@@ -51,9 +51,24 @@ const ListarUnEncabezado = async (req, res) => {
   } catch (error) {}
 };
 
+const ListarEncabezadosUser = async (req, res) => {
+  try {
+    const Encabezados = await sequelize.query(
+      `SELECT encabezado.idEncabezado, encabezado.fechaHora, encabezado.total, encabezado.idEstado,  metodopago.descripcion  FROM encabezado JOIN usuarios ON encabezado.idUsuario = usuarios.idUsuario JOIN metodopago ON encabezado.idMetodo = metodopago.idMetodo WHERE encabezado.idUsuario=${req.params.id} ORDER BY encabezado.idEncabezado DESC`,
+      {
+        type: QueryTypes.SELECT,
+      }
+    );
+    res.send({ id: 200, mensaje: Encabezados });
+  } catch (error) {
+    res.send({ id: 400, mensaje: error.message });
+  }
+};
+
 module.exports = {
   AgregarEncabezado,
   EditarEstadoEnca,
   ListarTodosEncabezados,
   ListarUnEncabezado,
+  ListarEncabezadosUser,
 };

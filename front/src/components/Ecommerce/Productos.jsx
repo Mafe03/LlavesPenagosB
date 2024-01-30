@@ -6,7 +6,9 @@ import { NavLink } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import ImgEyes from "../../assets/images/eyes.png";
 import ImgCart from "../../assets/images/cart.png";
-import Button from "react-bootstrap/Button";
+import Swal2 from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+const MySwal = withReactContent(Swal2);
 
 const Productos = (props) => {
   const [categorias, setCategorias] = useState([]);
@@ -33,6 +35,24 @@ const Productos = (props) => {
   const listarProductosCategoria = async (idCategoria) => {
     const request = await fetch(
       `http://localhost:3600/productos/listarCategoria/${idCategoria}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `${token}`,
+        },
+      }
+    );
+    const data = await request.json();
+    //console.log(data);
+    //console.table(data);
+    setProductos([]);
+    setProductos(data.mensaje);
+  };
+
+  const buscarProducto = async (e) => {
+    const request = await fetch(
+      `http://localhost:3600/productos/buscarProducto/${e.target.value}`,
       {
         method: "GET",
         headers: {
@@ -83,20 +103,60 @@ const Productos = (props) => {
     listarProductos();
   }, []);
 
-  const [show, setShow] = useState(false);
-  const handleClose = () => {
-    setShow(false);
-  };
-  const handleShow = () => {
-    setShow(true);
-  };
-
   const [show2, setShow2] = useState(false);
   const handleClose2 = () => {
     setShow2(false);
   };
   const handleShow2 = () => {
     setShow2(true);
+  };
+
+  const [prodLocalStorage, setProdLocalStorage] = useState(
+    JSON.parse(localStorage.getItem("productos")) || []
+  );
+
+  //FUNCION PARA VERIFICAR SI EL PRODUCTO YA ESTA
+  const VerificarLocalStorage = (producto) => {
+    const productosGuardados =
+      JSON.parse(localStorage.getItem("productos")) || [];
+    return productosGuardados.some((p) => p.id === producto.idProducto);
+  };
+
+  const handleClick = (product) => {
+    if (VerificarLocalStorage(product)) {
+      MySwal.fire({
+        title: <strong> {"Error"}</strong>,
+        html: <i>{"El producto ya existe en el carrito"}</i>,
+        icon: "error",
+      });
+    } else {
+      let nuevosProductos = JSON.parse(localStorage.getItem("productos")) || [];
+      let nuevoTotal = product.precio * 1;
+      // Actualizar la lista de productos con el nuevo producto
+      const nuevaLista = [
+        ...nuevosProductos,
+        {
+          imagen: product.imagen,
+          nombre: product.nombre,
+          id: product.idProducto,
+          precio: product.precio,
+          cantidad: 1,
+          cantidadMaxima: product.cantidad,
+          total: nuevoTotal,
+        },
+      ];
+      setProdLocalStorage([]);
+      localStorage.setItem("productos", JSON.stringify(nuevaLista));
+      setProdLocalStorage(nuevaLista);
+
+      // Guardar la lista de productos en el localStorage
+      localStorage.setItem("productos", JSON.stringify(nuevaLista));
+      MySwal.fire({
+        title: <strong> {"Agregado"}</strong>,
+        html: <i>{"Producto agregado al carrito"}</i>,
+        icon: "success",
+      });
+    }
   };
 
   return (
@@ -114,53 +174,40 @@ const Productos = (props) => {
             return (
               <div className="d-flex" key={producto.idProducto}>
                 <div className="flex-shrink-0">
-                  <img src={producto.imagen} alt="..." width="300px" />
+                  <img
+                    src={producto.imagen}
+                    alt="..."
+                    style={{ width: "350px", height: "350px" }}
+                  />
                 </div>
                 <div className="flex-grow-1 ms-3 d-flex flex-column justify-content-between">
                   <div>
                     <h3>{producto.nombre}</h3>
 
                     <p className="mt-3">{producto.descripcion}</p>
-                    <p>$ {producto.precio}</p>
-                    <p className="">Cantidad:</p>
-                    <div
-                      className="input-group mb-3 d-flex align-items-center quantity-container"
-                      style={{ maxWidth: "120px" }}
-                    >
-                      <div className="input-group-prepend">
-                        <button
-                          className="btn btn-outline-black decrease"
-                          type="button"
-                        >
-                          -
-                        </button>
-                      </div>
-                      <input
-                        type="text"
-                        className="form-control text-center quantity-amount"
-                        value="1"
-                        placeholder=""
-                        aria-label="Example text with button addon"
-                        aria-describedby="button-addon1"
-                      />
-                      <div className="input-group-append">
-                        <button
-                          className="btn btn-outline-black increase"
-                          type="button"
-                        >
-                          +
-                        </button>
-                      </div>
-                    </div>
+                    <p className="mt-2">$ {producto.precio}</p>
+                    <p className="mt-2">Stock: {producto.cantidad}</p>
                   </div>
-                  <NavLink to="Carrito" className="">
+                  {producto.cantidad === 0 ? (
                     <button
                       href="#"
                       className="btn btn-dark w-100 mt-auto btn-gradient"
+                      disabled
+                    >
+                      <i class="bi bi-cart4"></i> No hay producto
+                    </button>
+                  ) : (
+                    <button
+                      href="#"
+                      className="btn btn-dark w-100 mt-auto btn-gradient"
+                      onClick={() => {
+                        handleClick(producto);
+                        handleClose2();
+                      }}
                     >
                       <i class="bi bi-cart4"></i> Agregar al carrito
                     </button>
-                  </NavLink>
+                  )}
                 </div>
               </div>
             );
@@ -168,89 +215,17 @@ const Productos = (props) => {
         </Modal.Body>
       </Modal>
 
-      <Offcanvas show={show} onHide={handleClose} placement="end">
-        <Offcanvas.Header closeButton id="gradient">
-          <Offcanvas.Title>Tu carrito</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body className="fixed-body d-flex flex-column">
-          <div className="d-flex">
-            <div className="p-2 flex-fill">
-              <img
-                width="100px"
-                className=""
-                src="https://websitedemos.net/egrow-plants-04/wp-content/uploads/sites/1114/2022/07/flower-008-a-400x550.jpg"
-                alt=""
-                style={{ borderRadius: "5px" }}
-              />
-            </div>
-            <div className="p-2 flex-fill">
-              <p className="mt-3">Camiseta</p>
-              <p className="mt-3"> $ 120.000</p>
-              <div className="d-flex align-items-center mt-3">
-                <div
-                  className="input-group mb-3 d-flex align-items-center quantity-container"
-                  style={{ maxWidth: "120px" }}
-                >
-                  <div className="input-group-prepend">
-                    <button
-                      className="btn btn-outline-black decrease"
-                      type="button"
-                    >
-                      -
-                    </button>
-                  </div>
-                  <input
-                    type="text"
-                    className="form-control text-center quantity-amount"
-                    value="1"
-                    placeholder=""
-                    aria-label="Example text with button addon"
-                    aria-describedby="button-addon1"
-                  />
-                  <div className="input-group-append">
-                    <button
-                      className="btn btn-outline-black increase"
-                      type="button"
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="align-self-center">
-              {" "}
-              <i className="fa-solid fa-delete-left"></i>
-            </div>
-          </div>
-
-          <div style={{ marginBottom: "265px" }}></div>
-
-          <div className="d-grid gap-2 ">
-            <hr />
-            <div className="d-flex">
-              <div className="p-2">Total:</div>
-              <div className="ms-auto p-2">$ 120.000</div>
-            </div>
-            <NavLink to="/Ecommerce/Carrito">
-              <button className="btn btn-gradient w-100 ">
-                <i className="fa-solid fa-eye"></i> Ver carrito
-              </button>
-            </NavLink>
-            <button className="btn btn-gradient2 w-100">
-              <i className="fa-solid fa-star"></i> Comprar ahora
-            </button>
-          </div>
-        </Offcanvas.Body>
-      </Offcanvas>
-
       <div className="untree_co-section product-section before-footer-section">
         <div className="container">
           <div className="row">
             <div className="main-nav-start text-end">
               <div className="search-wrapper">
-                <input type="text" placeholder="Buscar" required />
+                <input
+                  type="text"
+                  placeholder="Buscar"
+                  onChange={buscarProducto}
+                  required
+                />
               </div>
             </div>
           </div>
@@ -290,6 +265,7 @@ const Productos = (props) => {
                 })}
               </div>
             </div>
+<<<<<<< HEAD
             {productos.map((producto) => {
               return (
                 <>
@@ -303,27 +279,56 @@ const Productos = (props) => {
                       />
                       <hr />
                       <h3 className="product-title mb-2">{producto.nombre}</h3>
+=======
+            <div className="col-1 d-flex">
+              <div class="vertical-line"></div>
+            </div>
+            <div className="col-8">
+              <div className="row">
+                {productos.map((producto) => {
+                  return (
+                    <div className="col-4 col-md-4 col-lg-4 mb-5 border border-secondary-subtle ">
+                      {" "}
+                      <a className="product-item ">
+                        <img
+                          src={producto.imagen}
+                          className="img-fluid product-thumbnail"
+                          style={{ width: "320px", height: "310px" }}
+                        />
+                        <hr />
+                        <h3 className="product-title mb-2">
+                          {producto.nombre}
+                        </h3>
+>>>>>>> ramaMafe
 
-                      <span className="product-price ">
-                        $ {producto.precio}
-                      </span>
-                      <span className="icon-cross" onClick={handleShow}>
-                        <img src={ImgCart} className="img-fluid" />
-                      </span>
-                      <span
-                        className="icon-cross2 "
-                        onClick={() => {
-                          ListarUnProducto(producto.idProducto);
-                          handleShow2();
-                        }}
-                      >
-                        <img src={ImgEyes} className="img-fluid" />
-                      </span>
-                    </a>
-                  </div>
-                </>
-              );
-            })}
+                        <span className="product-price ">
+                          $ {producto.precio}
+                        </span>
+                        <p className="mt-2">Stock: {producto.cantidad}</p>
+
+                        <span
+                          className="icon-cross"
+                          onClick={() => {
+                            handleClick(producto);
+                          }}
+                        >
+                          <img src={ImgCart} className="img-fluid" />
+                        </span>
+                        <span
+                          className="icon-cross2 "
+                          onClick={() => {
+                            ListarUnProducto(producto.idProducto);
+                            handleShow2();
+                          }}
+                        >
+                          <img src={ImgEyes} className="img-fluid" />
+                        </span>
+                      </a>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </div>

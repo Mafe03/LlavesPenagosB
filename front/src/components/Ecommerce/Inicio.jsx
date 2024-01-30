@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import extintor from "../../assets/images/extintores.jpg";
+import llave from "../../assets/images/llavess.png";
+import cerrojeria from "../../assets/images/cerrojeria.png";
 
 import { NavLink } from "react-bootstrap";
 
 const Inicio = () => {
   return (
     <>
-      <div className="hero">
+      <div className="hero mt-5">
         <div className="container">
           <div className="row justify-content-between">
             <div className="col-lg-5">
@@ -17,11 +20,6 @@ const Inicio = () => {
                   instalación de extintores. Tu tranquilidad es nuestra
                   prioridad. ¡Confía en nosotros para proteger lo que más
                   importa!
-                </p>
-                <p>
-                  <a hre className="btn btn-gradient2">
-                    Ver más
-                  </a>
                 </p>
               </div>
             </div>
@@ -35,126 +33,42 @@ const Inicio = () => {
       <div className="product-section">
         <div className="container-sm">
           <div className="row">
-            <div className="col-md-12 col-lg-3 mb-5 mb-lg-0">
-              <h2 className="mb-4 section-title">Cerrojeria</h2>
-              <p className="mb-4">
-                Instalación de nuevas cerraduras o reemplazo de cerraduras
-                existentes para mejorar la seguridad o en caso de pérdida de
-                llaves.{" "}
-              </p>
-              <p>
-                <NavLink to="Productos">
-                  <a className="btn btn-gradient">Ver más</a>
-                </NavLink>
-              </p>
-            </div>
-
-            <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-              <a className="product-item" href="cart.html">
-                <img
-                  src="images/product-1.png"
-                  className="img-fluid product-thumbnail"
-                />
-                <h3 className="product-title">Nordic Chair</h3>
-                <strong className="product-price">$50.00</strong>
-
-                <span className="icon-cross">
-                  <img src="images/cross.svg" className="img-fluid" />
-                </span>
-              </a>
-            </div>
-
-            <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-              <a className="product-item" href="cart.html">
-                <img
-                  src="images/product-2.png"
-                  className="img-fluid product-thumbnail"
-                />
-                <h3 className="product-title">Kruzo Aero Chair</h3>
-                <strong className="product-price">$78.00</strong>
-
-                <span className="icon-cross">
-                  <img src="images/cross.svg" className="img-fluid" />
-                </span>
-              </a>
-            </div>
-
-            <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-              <a className="product-item" href="cart.html">
-                <img
-                  src="images/product-3.png"
-                  className="img-fluid product-thumbnail"
-                />
-                <h3 className="product-title">Ergonomic Chair</h3>
-                <strong className="product-price">$43.00</strong>
-
-                <span className="icon-cross">
-                  <img src="images/cross.svg" className="img-fluid" />
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="product-section">
-        <div className="container-sm">
-          <div className="row">
-            <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-              <a className="product-item" href="cart.html">
-                <img
-                  src="images/product-1.png"
-                  className="img-fluid product-thumbnail"
-                />
-                <h3 className="product-title">Nordic Chair</h3>
-                <strong className="product-price">$50.00</strong>
-
-                <span className="icon-cross">
-                  <img src="images/cross.svg" className="img-fluid" />
-                </span>
-              </a>
-            </div>
-
-            <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-              <a className="product-item" href="cart.html">
-                <img
-                  src="images/product-2.png"
-                  className="img-fluid product-thumbnail"
-                />
-                <h3 className="product-title">Kruzo Aero Chair</h3>
-                <strong className="product-price">$78.00</strong>
-
-                <span className="icon-cross">
-                  <img src="images/cross.svg" className="img-fluid" />
-                </span>
-              </a>
-            </div>
-
-            <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-              <a className="product-item" href="cart.html">
-                <img
-                  src="images/product-3.png"
-                  className="img-fluid product-thumbnail"
-                />
-                <h3 className="product-title">Ergonomic Chair</h3>
-                <strong className="product-price">$43.00</strong>
-
-                <span className="icon-cross">
-                  <img src="images/cross.svg" className="img-fluid" />
-                </span>
-              </a>
-            </div>
-            <div className="col-md-12 col-lg-3 mb-5 mb-lg-0">
-              <h2 className="mb-4 section-title">Extintores</h2>
-              <p className="mb-4">
-                Los extintores son dispositivos de seguridad diseñados para
-                combatir y controlar incendios de manera rápida y eficiente.{" "}
-              </p>
-              <p>
-                <NavLink to="Productos">
-                  <a className="btn btn-gradient">Ver más</a>
-                </NavLink>
-              </p>
+            <div class="card-group">
+              <div class="card mr-3 ">
+                <img src={cerrojeria} class="card-img-top imagen" alt="..." />
+                <div class="card-body">
+                  <h2 className="mb-4 section-title text-center">Cerrojeria</h2>
+                  <p className="mb-4">
+                    Instalación de nuevas cerraduras o reemplazo de cerraduras
+                    existentes para mejorar la seguridad o en caso de pérdida de
+                    llaves.{" "}
+                  </p>
+                </div>
+              </div>
+              <div className="card mr-3 ">
+                <img src={llave} className="card-img-top imagen" alt="..." />
+                <div className="card-body">
+                  <h2 className="mb-4 section-title text-center">Llaves</h2>
+                  <p className="mb-4">
+                    Las llaves son elementos esenciales para el control de
+                    acceso y la protección de propiedades y pertenencias. Se
+                    utilizan en una variedad de entornos, desde el hogar y la
+                    oficina hasta instalaciones industriales. Las llaves pueden
+                    tener diseños y funciones diferentes, como llaves estándar,
+                    llaves maestras.{" "}
+                  </p>
+                </div>
+              </div>
+              <div className="card">
+                <img src={extintor} className="card-img-top imagen" alt="..." />
+                <div class="card-body">
+                  <h2 className="mb-4 section-title text-center">Extintores</h2>
+                  <p className="mb-4">
+                    Los extintores son dispositivos de seguridad diseñados para
+                    combatir y controlar incendios de manera rápida y eficiente.{" "}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -162,10 +76,6 @@ const Inicio = () => {
 
       <footer className="footer-section">
         <div className="container relative">
-          <div className="sofa-img">
-            <img src="images/sofa.png" alt="Image" className="img-fluid" />
-          </div>
-
           <div className="row">
             <div className="col-lg-8">
               <div className="subscription-form">
