@@ -40,6 +40,19 @@ const ListarProductosI = async (req, res) => {
   }
 };
 
+const BuscarProductos = async (req, res) => {
+  try {
+    let nombre = req.params.nombre;
+    const Productos = await sequelize.query(
+      `SELECT productos.idProducto, productos.nombre, productos.precio, productos.cantidad, productos.descripcion, categorias.descripCategoria, productos.imagen FROM productos JOIN categorias ON productos.idCategoria = categorias.idCategoria WHERE productos.nombre LIKE '%${nombre}%'`,
+      { type: QueryTypes.SELECT }
+    );
+    res.send({ id: 200, mensaje: Productos });
+  } catch (error) {
+    res.send({ id: 400, mensaje: error.message });
+  }
+};
+
 const ListarProductosCate = async (req, res) => {
   try {
     let idCate = req.params.id;
@@ -119,4 +132,5 @@ module.exports = {
   EliminarProductos,
   ListarProductoId,
   VerDisponibilidad,
+  BuscarProductos,
 };

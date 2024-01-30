@@ -27,6 +27,11 @@ router.get("/productos/listar/:pagina?", ProductosController.ListarProductos);
 router.get("/productos/listarI", ProductosController.ListarProductosI);
 
 router.get(
+  "/productos/buscarProducto/:nombre",
+  ProductosController.BuscarProductos
+);
+
+router.get(
   "/productos/listarCategoria/:id",
   auth,
   ProductosController.ListarProductosCate
@@ -89,7 +94,7 @@ router.get(
   ProductosController.ListarProductoId
 );
 
-router.get(
+router.post(
   "/productos/verDisponibilidad/:id",
   auth,
   ProductosController.VerDisponibilidad
