@@ -20,7 +20,7 @@ const Aside = () => {
             <ul className="sidebar-body-menu">
               <li>
                 <NavLink to="/Dashboard">
-                  <span class="icon user-3" aria-hidden="true"></span>
+                  <span className="icon user-3" aria-hidden="true"></span>
                   Empleado
                 </NavLink>
               </li>
@@ -69,7 +69,7 @@ const Aside = () => {
                 {" "}
                 {datos.nombre} {datos.apellido}
               </span>
-              <span class="sidebar-user__subtitle">
+              <span className="sidebar-user__subtitle">
                 Empleado:{datos.idEmpleado}
               </span>
             </div>

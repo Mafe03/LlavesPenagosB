@@ -227,7 +227,7 @@ const Pago = () => {
                   if (data.id === 400) {
                     MySwal.fire({
                       title: <strong> {"Error"}</strong>,
-                      html: <i>{"Error al comprar, contacte a soporte"}</i>,
+                      html: <i>{"Error al comprar"}</i>,
                       icon: "error",
                     });
                     break;
@@ -259,7 +259,7 @@ const Pago = () => {
           } else {
             let mensaje = data.mensaje;
             MySwal.fire({
-              title: <strong> {"Error1"}</strong>,
+              title: <strong> {"Error"}</strong>,
               html: <i>{mensaje || data.error}</i>,
               icon: "error",
             });
@@ -309,36 +309,32 @@ const Pago = () => {
           <section className="container py-5">
             <div
               id="ast-checkout-wrap"
-              class="ast-checkout-smaller ast-checkout-uppercase"
+              className="ast-checkout-smaller ast-checkout-uppercase"
             >
               <NavLink to={"/Ecommerce/Carrito"}>
                 <a href="">
-                  <span class="ast-step-number">1</span>
+                  <span className="ast-step-number">1</span>
                   <p>Carrito de Compras</p>
                 </a>
               </NavLink>
-              <span class="ahfb-svg-iconset ast-inline-flex svg-baseline ms-2 me-2">
-                <i class="fa-solid fa-chevron-right"></i>
+              <span className="ahfb-svg-iconset ast-inline-flex svg-baseline ms-2 me-2">
+                <i className="fa-solid fa-chevron-right"></i>
               </span>{" "}
-              <NavLink to={"/Ecommerce/PasarelaPago"}>
-                <a href="" class="ast-current">
-                  <span class="ast-step-number">2</span>
-                  <p>Verificar detalles</p>
-                </a>
-              </NavLink>
-              <span class="ahfb-svg-iconset ast-inline-flex svg-baseline ms-2 me-2">
-                <i class="fa-solid fa-chevron-right"></i>
+              <a href="" className="ast-current">
+                <span className="ast-step-number">2</span>
+                <p>Verificar detalles</p>
+              </a>
+              <span className="ahfb-svg-iconset ast-inline-flex svg-baseline ms-2 me-2">
+                <i className="fa-solid fa-chevron-right"></i>
               </span>{" "}
-              <NavLink to={"/Ecommerce/Factura"}>
-                <a
-                  href="#"
-                  class="ast-disable-click
+              <a
+                href="#"
+                className="ast-disable-click
 								"
-                >
-                  <span class="ast-step-number">3</span>
-                  <p>Orden Completa</p>
-                </a>
-              </NavLink>
+              >
+                <span className="ast-step-number">3</span>
+                <p>Orden Completa</p>
+              </a>
             </div>
             <div className="row  pt-4 pb-3">
               <div className="col-lg-12">
@@ -362,12 +358,12 @@ const Pago = () => {
                       <label for="floatingInput">Cedula</label>
                     </div>
 
-                    <div class="row g-2 mb-3">
-                      <div class="col-md">
-                        <div class="form-floating">
+                    <div className="row g-2 mb-3">
+                      <div className="col-md">
+                        <div className="form-floating">
                           <input
                             type="text"
-                            class="form-control"
+                            className="form-control"
                             id="nombre"
                             name="nombre"
                             placeholder="Nombre"
@@ -376,11 +372,11 @@ const Pago = () => {
                           <label for="floatingInputGrid">Nombre</label>
                         </div>
                       </div>
-                      <div class="col-md">
-                        <div class="form-floating">
+                      <div className="col-md">
+                        <div className="form-floating">
                           <input
                             type="text"
-                            class="form-control"
+                            className="form-control"
                             id="apellido"
                             name="apellido"
                             placeholder="Apellido"
@@ -401,12 +397,12 @@ const Pago = () => {
                       />
                       <label for="floatingInput">Correo Electronico</label>
                     </div>
-                    <div class="row g-2 mb-3">
-                      <div class="col-md">
-                        <div class="form-floating">
+                    <div className="row g-2 mb-3">
+                      <div className="col-md">
+                        <div className="form-floating">
                           <input
                             type="number"
-                            class="form-control"
+                            className="form-control"
                             id="telefono"
                             name="telefono"
                             placeholder="Celular"
@@ -414,11 +410,11 @@ const Pago = () => {
                           <label for="floatingInputGrid">Celular</label>
                         </div>
                       </div>
-                      <div class="col-md">
-                        <div class="form-floating">
+                      <div className="col-md">
+                        <div className="form-floating">
                           <input
                             type="text"
-                            class="form-control"
+                            className="form-control"
                             id="direccion"
                             name="direccion"
                             placeholder="Direccion"
@@ -462,7 +458,7 @@ const Pago = () => {
                     {productosCarrito.length > 0 ? (
                       <NavLink to="Factura">
                         <button
-                          class="btn btn-success w-100 mt-3 btn-gradient"
+                          className="btn btn-success w-100 mt-3 btn-gradient"
                           onClick={(e) => {
                             Encabezado(e);
                           }}
@@ -474,7 +470,7 @@ const Pago = () => {
                       <NavLink to="/Ecommerce/Producto">
                         <button
                           type="submit"
-                          class="btn btn-success w-100 mt-3 btn-gradient"
+                          className="btn btn-success w-100 mt-3 btn-gradient"
                           style={{ fontSize: "120%" }}
                         >
                           Agregar Productos
@@ -484,7 +480,7 @@ const Pago = () => {
                   </form>
                 </div>
                 <div className="col-1 d-flex">
-                  <div class="vertical-line"></div>
+                  <div className="vertical-line"></div>
                 </div>
                 <div className="col-4">
                   <h2 className="h2 mb-4 text-start">Productos</h2>
@@ -494,7 +490,7 @@ const Pago = () => {
                         <>
                           <div className="card mt-2" key={producto.id}>
                             <div className="d-flex flex-row">
-                              <div class="p-2 ">
+                              <div className="p-2 ">
                                 <img
                                   width="75px"
                                   height="100px"
@@ -507,11 +503,11 @@ const Pago = () => {
                               <div className="p-2">
                                 <p>{producto.nombre}</p>
                               </div>
-                              <div class="p-2">
+                              <div className="p-2">
                                 <p>X{producto.cantidad}</p>
                               </div>
-                              <div class="ms-5 p-2 d-flex align-items-end flex-column mt-auto">
-                                <p>$ {producto.precio}</p>
+                              <div className="ms-5 p-2 d-flex align-items-end flex-column mt-auto">
+                                <p>$ {formatearPrecio(producto.precio)}</p>
                               </div>
                             </div>
                           </div>
@@ -526,9 +522,11 @@ const Pago = () => {
                     </div>
                   )}
                   <hr />
-                  <div class="d-flex">
-                    <div class="p-2">Total:</div>
-                    <div class="ms-auto p-2">$ {formatearPrecio(total)}</div>
+                  <div className="d-flex">
+                    <div className="p-2">Total:</div>
+                    <div className="ms-auto p-2">
+                      $ {formatearPrecio(total)}
+                    </div>
                   </div>
                 </div>
               </div>

@@ -35,8 +35,12 @@ const Inicio = () => {
           <div className="row">
             <div class="card-group">
               <div class="card mr-3 ">
-                <img src={cerrojeria} class="card-img-top imagen" alt="..." />
-                <div class="card-body">
+                <img
+                  src={cerrojeria}
+                  className="card-img-top imagen"
+                  alt="..."
+                />
+                <div className="card-body">
                   <h2 className="mb-4 section-title text-center">Cerrojeria</h2>
                   <p className="mb-4">
                     Instalación de nuevas cerraduras o reemplazo de cerraduras

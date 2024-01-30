@@ -139,7 +139,7 @@ const Categorias = (props) => {
           </Modal.Body>
           <Modal.Footer>
             <button className=" btn-gradient" type="submit">
-              <i class="fa-solid fa-floppy-disk"></i> Agregar
+              <i className="fa-solid fa-floppy-disk"></i> Agregar
             </button>
           </Modal.Footer>
         </form>
@@ -149,13 +149,13 @@ const Categorias = (props) => {
           <h2 className="main-title text-center">Categorias</h2>
           <div className="col-12 text-end">
             <button onClick={handleShow2} className=" btn-gradient">
-              <i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar
+              <i className="fa fa-plus-circle" aria-hidden="true"></i> Agregar
               categorias
             </button>
           </div>
           <div className="row stat-cards mt-4">
             <div className="col-md-6 col-xl-12">
-              <table class="table  border border-black table-hover ">
+              <table className="table  border border-black table-hover ">
                 <thead>
                   <tr id="tr">
                     <th id="th">Nro categoria</th>
@@ -174,13 +174,13 @@ const Categorias = (props) => {
                         <td>{categoria.descripCategoria}</td>
                         <td id="th">
                           <a
-                            class="btn btn-app btn-gradient2"
+                            className="btn btn-app btn-gradient2"
                             onClick={() => {
                               setEditar(categoria.idCategoria);
                               handleShow();
                             }}
                           >
-                            <i class="fas fa-edit"></i>
+                            <i className="fas fa-edit"></i>
                           </a>
                         </td>
                         {Editar == categoria.idCategoria && (
@@ -197,7 +197,7 @@ const Categorias = (props) => {
                         <td id="th">
                           {" "}
                           <a
-                            class="btn btn-app btn-gradient"
+                            className="btn btn-app btn-gradient"
                             onClick={() => {
                               Eliminar(
                                 categoria.idCategoria,
@@ -205,7 +205,7 @@ const Categorias = (props) => {
                               );
                             }}
                           >
-                            <i class="fa fa-trash" aria-hidden="true"></i>
+                            <i className="fa fa-trash" aria-hidden="true"></i>
                           </a>
                         </td>
                       </tr>
@@ -217,9 +217,9 @@ const Categorias = (props) => {
           </div>
         </div>
       </main>
-      <footer class="footer">
-        <div class="container footer--flex">
-          <div class="footer-start">
+      <footer className="footer">
+        <div className="container footer--flex">
+          <div className="footer-start">
             <p>
               2021 © Llaves y Extintores Penagos-{" "}
               <a
@@ -231,7 +231,7 @@ const Categorias = (props) => {
               </a>
             </p>
           </div>
-          <ul class="footer-end">
+          <ul className="footer-end">
             <li>
               <a href="##">About</a>
             </li>

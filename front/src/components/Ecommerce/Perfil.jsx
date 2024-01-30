@@ -47,6 +47,10 @@ const Perfil = (props) => {
     //console.log(datos);
   }, []);
 
+  const formatearPrecio = (precio) => {
+    return precio.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  };
+
   useEffect(() => {
     EncabezadoUser();
     //console.log(encabezados);
@@ -91,7 +95,6 @@ const Perfil = (props) => {
   const handleShow2 = (fecha, total, id) => {
     setShow2(true);
     setModalData({ fecha, total, id });
-    // Resto de tu lógica para mostrar el modal
   };
   return (
     <>
@@ -104,12 +107,12 @@ const Perfil = (props) => {
       >
         <Modal.Header closeButton></Modal.Header>
         <Modal.Body>
-          <div class="container">
-            <div class="border p-4">
-              <h2 class="mb-4 m-2">Factura #{modalData.id}</h2>
+          <div className="container">
+            <div className="border p-4">
+              <h2 className="mb-4 m-2">Factura #{modalData.id}</h2>
               <p className="m-2">Fecha: {fechaFormateada(modalData.fecha)}</p>
 
-              <h3 class="mt-4 m-2">Información del Cliente</h3>
+              <h3 className="mt-4 m-2">Información del Cliente</h3>
               {datos.map((dato) => {
                 return (
                   <>
@@ -123,8 +126,8 @@ const Perfil = (props) => {
                 );
               })}
 
-              <h3 class="mt-4 m-2">Detalle de la Factura</h3>
-              <table class="table m-2">
+              <h3 className="mt-4 m-2">Detalle de la Factura</h3>
+              <table className="table m-2">
                 <thead>
                   <tr>
                     <th>Producto</th>
@@ -146,15 +149,17 @@ const Perfil = (props) => {
                         </td>
                         <td>{detal.nombre}</td>
                         <td>{detal.cantidad}</td>
-                        <td>$ {detal.totalProd}</td>
+                        <td>$ {formatearPrecio(detal.totalProd)}</td>
                       </tr>
                     );
                   })}
                 </tbody>
               </table>
 
-              <div class="text-end">
-                <p class="fw-bold">Total: ${modalData.total}</p>
+              <div className="text-end">
+                <p className="fw-bold">
+                  Total: ${formatearPrecio(modalData.total)}
+                </p>
               </div>
             </div>
           </div>
@@ -206,7 +211,7 @@ const Perfil = (props) => {
                   <h3>Facturas</h3>
                 </div>
                 <div className="site-blocks-table mt-5">
-                  <table class="table border border-black  ">
+                  <table className="table border border-black  ">
                     <thead>
                       <tr id="tr2">
                         <th># Factura</th>
@@ -225,7 +230,7 @@ const Perfil = (props) => {
                             <tr>
                               <td>{encabezado.idEncabezado}</td>
                               <td>{fechaFormateada(encabezado.fechaHora)}</td>
-                              <td>{encabezado.total}</td>
+                              <td>{formatearPrecio(encabezado.total)}</td>
                               <td>
                                 {encabezado.idEstado === 0
                                   ? "Pendiente"
@@ -237,7 +242,7 @@ const Perfil = (props) => {
                               <td>
                                 <button
                                   href="#"
-                                  class="btn btn-dark btn-gradient"
+                                  className="btn btn-dark btn-gradient"
                                   onClick={() => {
                                     listarDetEnca(encabezado.idEncabezado);
                                     handleShow2(
@@ -247,7 +252,7 @@ const Perfil = (props) => {
                                     );
                                   }}
                                 >
-                                  <i class="bi bi-receipt"></i>
+                                  <i className="bi bi-receipt"></i>
                                 </button>
                               </td>
                             </tr>

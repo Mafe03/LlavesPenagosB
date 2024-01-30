@@ -93,7 +93,7 @@ const EditarProducto = ({
           }
         });
     } else {
-      MySwal.fire({
+      Swal.fire({
         title: <strong> {"Error"}</strong>,
         html: <i>{"No deje Campos Vacios"}</i>,
         icon: "error",

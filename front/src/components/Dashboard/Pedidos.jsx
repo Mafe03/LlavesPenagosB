@@ -62,7 +62,7 @@ const Pedidos = () => {
           <div className="row stat-cards mt-4">
             <div className="col-md-6 col-xl-12">
               <div className="container-fluid">
-                <table class="table  border border-black table-hover ">
+                <table className="table  border border-black table-hover ">
                   <thead>
                     <tr id="tr">
                       <th id="th">Nro Pedido</th>
@@ -93,12 +93,12 @@ const Pedidos = () => {
                           <td id="th">
                             {" "}
                             <a
-                              class="btn btn-app btn-gradient2"
+                              className="btn btn-app btn-gradient2"
                               onClick={() => {
                                 Agregar(pedido.idEncabezado);
                               }}
                             >
-                              <i class="fas fa-edit"></i>
+                              <i className="fas fa-edit"></i>
                             </a>
                           </td>
                         </tr>
@@ -111,9 +111,9 @@ const Pedidos = () => {
           </div>
         </div>
       </main>
-      <footer class="footer">
-        <div class="container footer--flex">
-          <div class="footer-start">
+      <footer className="footer">
+        <div className="container footer--flex">
+          <div className="footer-start">
             <p>
               2021 © Llaves y Extintores Penagos-{" "}
               <a
@@ -125,7 +125,7 @@ const Pedidos = () => {
               </a>
             </p>
           </div>
-          <ul class="footer-end">
+          <ul className="footer-end">
             <li>
               <a href="##">About</a>
             </li>

@@ -25,19 +25,16 @@ const Carrito = () => {
   };
 
   const Eliminar = (productoId) => {
-    // Obtener la lista de productos desde el localStorage
     const productosGuardados =
       JSON.parse(localStorage.getItem("productos")) || [];
 
-    // Filtrar la lista para excluir el producto con el ID específico
     const nuevaLista = productosGuardados.filter(
       (producto) => producto.id !== productoId
     );
     //console.log(nuevaLista);
-    // Actualizar el localStorage con la nueva lista
+
     localStorage.setItem("productos", JSON.stringify(nuevaLista));
 
-    // Actualizar el estado del componente con la nueva lista
     setProductosCarrito([]);
     setProductosCarrito(nuevaLista);
     verCarrito();
@@ -49,7 +46,7 @@ const Carrito = () => {
       .map((producto) => {
         if (producto.id === id) {
           const cantidadMaxima = producto.cantidadMaxima;
-          // Asegurarse de que la nueva cantidad no supere la cantidad máxima
+
           const cantidadActualizada = Math.min(nuevaCantidad, cantidadMaxima);
           if (cantidadActualizada > 0 && producto.precio > 0) {
             return {
@@ -76,30 +73,30 @@ const Carrito = () => {
           <section className="container py-5">
             <div
               id="ast-checkout-wrap"
-              class="ast-checkout-smaller ast-checkout-uppercase"
+              className="ast-checkout-smaller ast-checkout-uppercase"
             >
               <NavLink to={"/Ecommerce/Carrito"}>
-                <a href="" class="ast-current">
-                  <span class="ast-step-number">1</span>
+                <a className="ast-current">
+                  <span className="ast-step-number">1</span>
                   <p>Carrito de Compras</p>
                 </a>
               </NavLink>
-              <span class="ahfb-svg-iconset ast-inline-flex svg-baseline ms-2 me-2">
-                <i class="fa-solid fa-chevron-right"></i>
+              <span className="ahfb-svg-iconset ast-inline-flex svg-baseline ms-2 me-2">
+                <i className="fa-solid fa-chevron-right"></i>
               </span>{" "}
               <a href="">
-                <span class="ast-step-number">2</span>
+                <span className="ast-step-number">2</span>
                 <p>Verificar detalles</p>
               </a>
-              <span class="ahfb-svg-iconset ast-inline-flex svg-baseline ms-2 me-2">
-                <i class="fa-solid fa-chevron-right"></i>
+              <span className="ahfb-svg-iconset ast-inline-flex svg-baseline ms-2 me-2">
+                <i className="fa-solid fa-chevron-right"></i>
               </span>{" "}
               <a
                 href="#"
-                class="ast-disable-click
+                className="ast-disable-click
 								"
               >
-                <span class="ast-step-number">3</span>
+                <span className="ast-step-number">3</span>
                 <p>Orden Completa</p>
               </a>
             </div>
@@ -111,7 +108,7 @@ const Carrito = () => {
             <div className="row">
               <div className="col-8">
                 <div className="site-blocks-table">
-                  <table class="table border border-black  ">
+                  <table className="table border border-black  ">
                     <thead>
                       <tr id="tr2">
                         <th id="img"></th>
@@ -146,7 +143,9 @@ const Carrito = () => {
                               </td>
                               <td className="align-middle">
                                 <div className="d-flex align-items-center">
-                                  <p className="mb-0">${producto.precio}</p>
+                                  <p className="mb-0">
+                                    ${formatearPrecio(producto.precio)}
+                                  </p>
                                 </div>
                               </td>
                               <td className="align-middle">
@@ -177,7 +176,7 @@ const Carrito = () => {
                               </td>
                               <td className="align-middle">
                                 <i
-                                  class="fa-solid fa-delete-left"
+                                  className="fa-solid fa-delete-left"
                                   onClick={() => {
                                     Eliminar(producto.id);
                                   }}
@@ -195,9 +194,9 @@ const Carrito = () => {
               </div>
 
               <div className="col-4">
-                <div class="card">
+                <div className="card">
                   <div
-                    class="card-header "
+                    className="card-header "
                     style={{
                       color: "white",
                       padding: "10px",
@@ -208,17 +207,17 @@ const Carrito = () => {
                   >
                     Total Carrito
                   </div>
-                  <div class="card-body">
+                  <div className="card-body">
                     <div className="d-flex">
-                      <p class="card-text mt-3">Subtotal:</p>
-                      <p class="card-text mt-3 ms-5">
+                      <p className="card-text mt-3">Subtotal:</p>
+                      <p className="card-text mt-3 ms-5">
                         ${formatearPrecio(total)}
                       </p>
                     </div>
                     <hr />
                     <div className="d-flex">
-                      <p class="card-text mt-3">Total:</p>{" "}
-                      <p class="card-text mt-3 ms-5">
+                      <p className="card-text mt-3">Total:</p>{" "}
+                      <p className="card-text mt-3 ms-5">
                         ${formatearPrecio(total)}
                       </p>
                     </div>
@@ -228,7 +227,7 @@ const Carrito = () => {
                         <NavLink to="/Ecommerce/PasarelaPago">
                           <button
                             href="#"
-                            class="btn btn-dark w-100 mt-5 btn-gradient"
+                            className="btn btn-dark w-100 mt-5 btn-gradient"
                           >
                             Pagar
                           </button>

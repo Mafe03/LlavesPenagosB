@@ -9,11 +9,11 @@ const Factura = () => {
           <section className="container py-5">
             <div
               id="ast-checkout-wrap"
-              class="ast-checkout-smaller ast-checkout-uppercase"
+              className="ast-checkout-smaller ast-checkout-uppercase"
             >
               <NavLink to={"/Ecommerce/Carrito"}>
-                <a href="" class="ast-current">
-                  <span class="ast-step-number">1</span>
+                <a href="" className="ast-current">
+                  <span className="ast-step-number">1</span>
                   <p>Carrito de Compras</p>
                 </a>
               </NavLink>
@@ -22,20 +22,20 @@ const Factura = () => {
               </span>{" "}
               <NavLink to={"/Ecommerce/PasarelaPago"}>
                 <a href="">
-                  <span class="ast-step-number">2</span>
+                  <span className="ast-step-number">2</span>
                   <p>Verificar detalles</p>
                 </a>
               </NavLink>
-              <span class="ahfb-svg-iconset ast-inline-flex svg-baseline ms-2 me-2">
-                <i class="fa-solid fa-chevron-right"></i>
+              <span className="ahfb-svg-iconset ast-inline-flex svg-baseline ms-2 me-2">
+                <i className="fa-solid fa-chevron-right"></i>
               </span>{" "}
               <NavLink to={"/Ecommerce/Factura"}>
                 <a
                   href="#"
-                  class="ast-disable-click
+                  className="ast-disable-click
                                   "
                 >
-                  <span class="ast-step-number">3</span>
+                  <span className="ast-step-number">3</span>
                   <p>Orden Completa</p>
                 </a>
               </NavLink>
@@ -47,7 +47,7 @@ const Factura = () => {
                   <NavLink to="/Ecommerce/Perfil">
                     <button
                       href="#"
-                      class="btn btn-dark w-100 mt-5 btn-gradient"
+                      className="btn btn-dark w-100 mt-5 btn-gradient"
                     >
                       Ver facturas
                     </button>
