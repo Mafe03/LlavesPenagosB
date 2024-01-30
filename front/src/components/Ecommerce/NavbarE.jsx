@@ -30,19 +30,16 @@ const NarvbarE = () => {
   };
 
   const Eliminar = (productoId) => {
-    // Obtener la lista de productos desde el localStorage
     const productosGuardados =
       JSON.parse(localStorage.getItem("productos")) || [];
 
-    // Filtrar la lista para excluir el producto con el ID específico
     const nuevaLista = productosGuardados.filter(
       (producto) => producto.id !== productoId
     );
     //console.log(nuevaLista);
-    // Actualizar el localStorage con la nueva lista
+
     localStorage.setItem("productos", JSON.stringify(nuevaLista));
 
-    // Actualizar el estado del componente con la nueva lista
     setProductosCarrito([]);
     setProductosCarrito(nuevaLista);
     verCarrito();
@@ -101,7 +98,7 @@ const NarvbarE = () => {
 
                   <div className="p-2 flex-fill">
                     <p className="mt-3">{producto.nombre}</p>
-                    <p className="mt-3">${producto.precio}</p>
+                    <p className="mt-3">${formatearPrecio(producto.precio)}</p>
                     <p className="mt-3">Cantidad: {producto.cantidad}</p>
                   </div>
 
@@ -179,7 +176,7 @@ const NarvbarE = () => {
               <li>
                 <NavLink to="Perfil">
                   <a className="nav-link">
-                    <i class="bi bi-person-circle"></i>
+                    <i className="bi bi-person-circle"></i>
                     <span>
                       {"   "}
                       {datos.nombre} {datos.apellido}
@@ -195,12 +192,12 @@ const NarvbarE = () => {
                     handleShow();
                   }}
                 >
-                  <i class="bi bi-cart4"></i>
+                  <i className="bi bi-cart4"></i>
                 </a>
               </li>
               <li>
                 <a className="nav-link" onClick={CerraSesion}>
-                  <i class="bi bi-box-arrow-right"></i>{" "}
+                  <i className="bi bi-box-arrow-right"></i>{" "}
                   <span>{""} Cerrar sesión</span>
                 </a>
               </li>

@@ -298,13 +298,13 @@ const Productos = (props) => {
                         <td style={{ color: "white" }}>
                           {" "}
                           <a
-                            class="btn btn-app btn-gradient2"
+                            className="btn btn-app btn-gradient2"
                             onClick={() => {
                               setEditar(producto.idProducto);
                               handleShow();
                             }}
                           >
-                            <i class="fas fa-edit"></i>
+                            <i className="fas fa-edit"></i>
                           </a>
                         </td>
                         {Editar == producto.idProducto && (
@@ -324,12 +324,12 @@ const Productos = (props) => {
                         <td style={{ color: "white" }}>
                           {" "}
                           <a
-                            class="btn btn-app btn-gradient"
+                            className="btn btn-app btn-gradient"
                             onClick={() => {
                               Eliminar(producto.idProducto, producto.nombre);
                             }}
                           >
-                            <i class="fa fa-trash" aria-hidden="true"></i>
+                            <i className="fa fa-trash" aria-hidden="true"></i>
                           </a>
                         </td>
                       </tr>
@@ -341,9 +341,9 @@ const Productos = (props) => {
           </div>
         </div>
       </main>
-      <footer class="footer">
-        <div class="container footer--flex">
-          <div class="footer-start">
+      <footer className="footer">
+        <div className="container footer--flex">
+          <div className="footer-start">
             <p>
               2021 © Llaves y Extintores Penagos-{" "}
               <a
@@ -355,7 +355,7 @@ const Productos = (props) => {
               </a>
             </p>
           </div>
-          <ul class="footer-end">
+          <ul className="footer-end">
             <li>
               <a href="##">About</a>
             </li>

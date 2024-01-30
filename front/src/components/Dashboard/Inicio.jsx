@@ -235,7 +235,7 @@ const Inicio = (props) => {
           </Modal.Body>
           <Modal.Footer>
             <button className=" btn-gradient" type="submit">
-              <i class="fa-solid fa-floppy-disk"></i> Agregar
+              <i className="fa-solid fa-floppy-disk"></i> Agregar
             </button>
           </Modal.Footer>
         </form>
@@ -245,13 +245,16 @@ const Inicio = (props) => {
           <h2 className="main-title text-center">Usuarios</h2>
           <div className="col-12 text-end">
             <button onClick={handleShow2} className=" btn-gradient">
-              <i class="fa fa-user-plus" aria-hidden="true"></i> Agregar
+              <i className="fa fa-user-plus" aria-hidden="true"></i> Agregar
               empleado
             </button>
           </div>
           <div className="row stat-cards mt-4">
             <div className="col-md-6 col-xl-12">
-              <table class="table  border border-black table-hover " id="tabla">
+              <table
+                className="table  border border-black table-hover "
+                id="tabla"
+              >
                 <thead>
                   <tr id="tr">
                     <th id="th">Cedula</th>
@@ -281,9 +284,9 @@ const Inicio = (props) => {
                               setEditar(empleado.idEmpleado);
                               handleShow();
                             }}
-                            class="btn btn-app btn-gradient2"
+                            className="btn btn-app btn-gradient2"
                           >
-                            <i class="fas fa-edit"></i>
+                            <i className="fas fa-edit"></i>
                           </a>
                         </td>
                         {Editar == empleado.idEmpleado && (
@@ -311,9 +314,9 @@ const Inicio = (props) => {
                                 empleado.nombre + " " + empleado.apellido
                               );
                             }}
-                            class="btn btn-app btn-gradient"
+                            className="btn btn-app btn-gradient"
                           >
-                            <i class="fa fa-trash" aria-hidden="true"></i>
+                            <i className="fa fa-trash" aria-hidden="true"></i>
                           </a>
                         </td>
                       </tr>
@@ -325,9 +328,9 @@ const Inicio = (props) => {
           </div>
         </div>
       </main>
-      <footer class="footer">
-        <div class="container footer--flex">
-          <div class="footer-start">
+      <footer className="footer">
+        <div className="container footer--flex">
+          <div className="footer-start">
             <p>
               2021 © Llaves y Extintores Penagos-{" "}
               <a
@@ -339,7 +342,7 @@ const Inicio = (props) => {
               </a>
             </p>
           </div>
-          <ul class="footer-end">
+          <ul className="footer-end">
             <li>
               <a href="##">About</a>
             </li>

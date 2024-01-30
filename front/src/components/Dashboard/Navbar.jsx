@@ -52,7 +52,7 @@ const Navbar = () => {
             </div>
             <div className="nav-user-wrapper">
               <a className="danger" onClick={CerraSesion}>
-                <span class="icon thumbnail" aria-hidden="true"></span>
+                <span className="icon thumbnail" aria-hidden="true"></span>
               </a>
             </div>
           </div>

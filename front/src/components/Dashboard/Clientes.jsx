@@ -78,7 +78,7 @@ const Clientes = (props) => {
           <h2 className="main-title text-center">Clientes</h2>
           <div className="row stat-cards">
             <div className="col-md-6 col-xl-12 mt-3">
-              <table class="table  border border-black table-hover ">
+              <table className="table  border border-black table-hover ">
                 <thead>
                   <tr id="tr">
                     <th id="th">Cedula</th>
@@ -103,13 +103,13 @@ const Clientes = (props) => {
                         <td>{cliente.email}</td>
                         <td id="th">
                           <a
-                            class="btn btn-app btn-gradient2"
+                            className="btn btn-app btn-gradient2"
                             onClick={() => {
                               setEditar(cliente.idUsuario);
                               handleShow();
                             }}
                           >
-                            <i class="fas fa-edit"></i>
+                            <i className="fas fa-edit"></i>
                           </a>
                         </td>
                         {Editar == cliente.idUsuario && (
@@ -136,9 +136,9 @@ const Clientes = (props) => {
                                 cliente.nombre + " " + cliente.apellido
                               );
                             }}
-                            class="btn btn-app btn-gradient"
+                            className="btn btn-app btn-gradient"
                           >
-                            <i class="fa fa-trash" aria-hidden="true"></i>
+                            <i className="fa fa-trash" aria-hidden="true"></i>
                           </a>
                         </td>
                       </tr>
@@ -150,9 +150,9 @@ const Clientes = (props) => {
           </div>
         </div>
       </main>
-      <footer class="footer">
-        <div class="container footer--flex">
-          <div class="footer-start">
+      <footer className="footer">
+        <div className="container footer--flex">
+          <div className="footer-start">
             <p>
               2021 © Llaves y Extintores Penagos-{" "}
               <a
@@ -164,7 +164,7 @@ const Clientes = (props) => {
               </a>
             </p>
           </div>
-          <ul class="footer-end">
+          <ul className="footer-end">
             <li>
               <a href="##">About</a>
             </li>

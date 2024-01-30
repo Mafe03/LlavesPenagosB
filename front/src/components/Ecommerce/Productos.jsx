@@ -132,7 +132,7 @@ const Productos = (props) => {
     } else {
       let nuevosProductos = JSON.parse(localStorage.getItem("productos")) || [];
       let nuevoTotal = product.precio * 1;
-      // Actualizar la lista de productos con el nuevo producto
+
       const nuevaLista = [
         ...nuevosProductos,
         {
@@ -149,7 +149,6 @@ const Productos = (props) => {
       localStorage.setItem("productos", JSON.stringify(nuevaLista));
       setProdLocalStorage(nuevaLista);
 
-      // Guardar la lista de productos en el localStorage
       localStorage.setItem("productos", JSON.stringify(nuevaLista));
       MySwal.fire({
         title: <strong> {"Agregado"}</strong>,
@@ -157,6 +156,10 @@ const Productos = (props) => {
         icon: "success",
       });
     }
+  };
+
+  const formatearPrecio = (precio) => {
+    return precio.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   };
 
   return (
@@ -185,7 +188,7 @@ const Productos = (props) => {
                     <h3>{producto.nombre}</h3>
 
                     <p className="mt-3">{producto.descripcion}</p>
-                    <p className="mt-2">$ {producto.precio}</p>
+                    <p className="mt-2">$ {formatearPrecio(producto.precio)}</p>
                     <p className="mt-2">Stock: {producto.cantidad}</p>
                   </div>
                   {producto.cantidad === 0 ? (
@@ -194,7 +197,7 @@ const Productos = (props) => {
                       className="btn btn-dark w-100 mt-auto btn-gradient"
                       disabled
                     >
-                      <i class="bi bi-cart4"></i> No hay producto
+                      <i className="bi bi-cart4"></i> No hay producto
                     </button>
                   ) : (
                     <button
@@ -205,7 +208,7 @@ const Productos = (props) => {
                         handleClose2();
                       }}
                     >
-                      <i class="bi bi-cart4"></i> Agregar al carrito
+                      <i className="bi bi-cart4"></i> Agregar al carrito
                     </button>
                   )}
                 </div>
@@ -232,9 +235,9 @@ const Productos = (props) => {
           <h3>Categorias</h3>
           <div className="row mt-5">
             <div className="col-3">
-              <div class="list-group" id="list-tab" role="tablist">
+              <div className="list-group" id="list-tab" role="tablist">
                 <a
-                  class="list-group-item list-group-item-action "
+                  className="list-group-item list-group-item-action "
                   id="list-home-list"
                   data-bs-toggle="list"
                   href="#list-home"
@@ -249,7 +252,7 @@ const Productos = (props) => {
                 {categorias.map((categoria) => {
                   return (
                     <a
-                      class="list-group-item list-group-item-action "
+                      className="list-group-item list-group-item-action "
                       id="list-home-list"
                       data-bs-toggle="list"
                       href="#list-home"
@@ -281,7 +284,7 @@ const Productos = (props) => {
                       <h3 className="product-title mb-2">{producto.nombre}</h3>
 =======
             <div className="col-1 d-flex">
-              <div class="vertical-line"></div>
+              <div className="vertical-line"></div>
             </div>
             <div className="col-8">
               <div className="row">
@@ -302,7 +305,7 @@ const Productos = (props) => {
 >>>>>>> ramaMafe
 
                         <span className="product-price ">
-                          $ {producto.precio}
+                          $ {formatearPrecio(producto.precio)}
                         </span>
                         <p className="mt-2">Stock: {producto.cantidad}</p>
 
