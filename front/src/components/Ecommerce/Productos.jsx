@@ -252,6 +252,7 @@ const Productos = (props) => {
                 {categorias.map((categoria) => {
                   return (
                     <a
+                      key={categoria.idCategoria}
                       className="list-group-item list-group-item-action "
                       id="list-home-list"
                       data-bs-toggle="list"
@@ -268,7 +269,7 @@ const Productos = (props) => {
                 })}
               </div>
             </div>
-<<<<<<< HEAD
+            {/* <<<<<<< HEAD
             {productos.map((producto) => {
               return (
                 <>
@@ -282,7 +283,7 @@ const Productos = (props) => {
                       />
                       <hr />
                       <h3 className="product-title mb-2">{producto.nombre}</h3>
-=======
+======= */}
             <div className="col-1 d-flex">
               <div className="vertical-line"></div>
             </div>
@@ -290,7 +291,10 @@ const Productos = (props) => {
               <div className="row">
                 {productos.map((producto) => {
                   return (
-                    <div className="col-4 col-md-4 col-lg-4 mb-5 border border-secondary-subtle ">
+                    <div
+                      className="col-4 col-md-4 col-lg-4 mb-5 border border-secondary-subtle "
+                      key={producto.nombre}
+                    >
                       {" "}
                       <a className="product-item ">
                         <img
@@ -302,7 +306,7 @@ const Productos = (props) => {
                         <h3 className="product-title mb-2">
                           {producto.nombre}
                         </h3>
->>>>>>> ramaMafe
+                        {/* >>>>>>> ramaMafe */}
 
                         <span className="product-price ">
                           $ {formatearPrecio(producto.precio)}

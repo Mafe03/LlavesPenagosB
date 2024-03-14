@@ -35,7 +35,7 @@ const Navbar = () => {
   const datos = JSON.parse(localStorage.getItem("user2"));
   return (
     <>
-      <nav className="main-nav--bg fixed-top">
+      <nav className="main-nav--bg">
         <div className="container main-nav">
           <div className="main-nav-start"></div>
           <div className="main-nav-end">

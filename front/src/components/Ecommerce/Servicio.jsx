@@ -249,7 +249,7 @@ const Servicio = () => {
                   <script>document.write(new Date().getFullYear());</script>.
                   All Rights Reserved. &mdash; Designed with love by{" "}
                   <a href="https://untree.co">Untree.co</a> Distributed By{" "}
-                  <a hreff="https://themewagon.com">ThemeWagon</a>
+                  <a href="https://themewagon.com">ThemeWagon</a>
                 </p>
               </div>
 
